@@ -83,13 +83,15 @@ function TicketPage() {
             {expired ? (
               <p className="text-center" style={{ fontSize: 24, fontWeight: 700, color: "#D32F2F", letterSpacing: 2 }}>TICKET EXPIRED</p>
             ) : (
-              <p className="timer-digits" style={{ color: "#000000" }}>{t.h} : {t.m} : {t.s}</p>
+              <div style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+                <div className="timer-digits" style={{ color: "#000000", display: "inline-block" }}>{t.h} : {t.m} : {t.s}</div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", columnGap: 18, fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500, marginTop: 2, marginBottom: 14, textAlign: "center" }}>
+                  <span>Hours</span><span>Minutes</span><span>Seconds</span>
+                </div>
+              </div>
             )}
-            <div className="flex justify-around mb-4" style={{ fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500 }}>
-              <span>Hours</span><span>Minutes</span><span>Seconds</span>
-            </div>
             <button onClick={() => nav({ to: "/qr" })} className="w-full active:scale-[0.98] transition-transform" style={{ background: "#29B5E8", color: "#fff", borderRadius: 8, padding: "14px 0", fontSize: 18, fontWeight: 600, border: "none", fontStyle: "italic", fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif", letterSpacing: 0.3 }}>
-              View your Tickets...
+              View your Tickets
             </button>
           </div>
 
