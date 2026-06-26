@@ -38,9 +38,11 @@ function QrPage() {
       <div style={{ height: 24, background: "#fff" }} />
       <header style={{ background: "#fff", height: 56, padding: "0 16px", borderBottom: "1px solid #F0F0F0" }} className="flex items-center">
         <button onClick={() => nav({ to: "/ticket" })} aria-label="Back" className="mr-2"><ArrowLeft size={24} color="#212121" /></button>
-        <div className="flex-1 flex items-center gap-2">
-          <img src={ticketIcon.url} alt="Ticket" style={{ height: 24, width: 28, objectFit: "contain" }} />
-          <span style={{ fontSize: 16, fontWeight: 600, color: "#212121" }}>1 QR Ticket</span>
+        <div className="flex-1 flex items-center gap-3">
+          <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#E3F2FD", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <img src={ticketIcon.url} alt="Ticket" style={{ height: 28, width: 32, objectFit: "contain" }} />
+          </div>
+          <span style={{ fontSize: 17, fontWeight: 600, color: "#212121" }}>1 QR Ticket</span>
         </div>
         <span style={{ fontSize: 14, fontWeight: 500, color: "#00BAF2" }}>Help</span>
       </header>
