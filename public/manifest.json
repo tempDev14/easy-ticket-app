@@ -1,0 +1,14 @@
+{
+  "name": "BRTS Bus Ticket",
+  "short_name": "BRTS Ticket",
+  "description": "Ahmedabad BRTS Digital Bus Ticket",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#00BAF2",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "64x64", "type": "image/x-icon" }
+  ]
+}
