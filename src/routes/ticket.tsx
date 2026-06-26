@@ -1,7 +1,10 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight, Bus, CheckCircle2, ChevronDown, Clock, Gift, Home, RefreshCw, User } from "lucide-react";
+import { ArrowLeft, ArrowRight, Bus, ChevronDown, Clock, Gift, Home, RefreshCw } from "lucide-react";
 import { formatDateTime, formatTimer, useTicket } from "@/lib/ticket-context";
+import { BoyAvatar, VerifiedBadge } from "@/components/Avatar";
+import janmargAsset from "@/assets/janmarg.png.asset.json";
+import paytmAsset from "@/assets/paytm.png.asset.json";
 
 export const Route = createFileRoute("/ticket")({
   head: () => ({ meta: [{ title: "Ticket Booked — BRTS" }] }),
@@ -39,7 +42,7 @@ function TicketPage() {
       <div style={{ height: 24, background: "#fff" }} />
       <header style={{ background: "#fff", height: 56, padding: "0 16px", borderBottom: "1px solid #F0F0F0" }} className="flex items-center justify-between">
         <button onClick={() => nav({ to: "/book" })} aria-label="Back"><ArrowLeft size={24} color="#212121" /></button>
-        <div className="paytm-logo">paytm</div>
+        <img src={paytmAsset.url} alt="Paytm" style={{ height: 22 }} />
         <span style={{ fontSize: 14, fontWeight: 500, color: "#00BAF2" }}>Help</span>
       </header>
 
@@ -47,8 +50,8 @@ function TicketPage() {
       <div style={{ background: "#DCF0FB", borderRadius: 20, margin: 12, overflow: "hidden" }}>
         <div style={{ padding: "20px 16px 0" }}>
           <div className="flex justify-center mb-3">
-            <div style={{ width: 64, height: 64, background: "#fff", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Bus size={32} color="#1565C0" />
+            <div style={{ width: 64, height: 64, background: "#fff", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", padding: 8 }}>
+              <img src={janmargAsset.url} alt="Janmarg" style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
             </div>
           </div>
           <div className="flex justify-center items-center gap-1.5 mb-1" style={{ fontSize: 22, fontWeight: 700, color: "#212121" }}>
@@ -60,15 +63,13 @@ function TicketPage() {
           <p className="text-center mb-3" style={{ fontSize: 13, color: "#757575" }}>{ticket.adults} Adult Ticket{ticket.adults > 1 ? "s" : ""}</p>
 
           <div className="flex justify-center items-center gap-2 mb-1.5">
-            <div style={{ width: 36, height: 36, borderRadius: "50%", background: "#1976D2", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <User size={20} color="#fff" />
-            </div>
+            <BoyAvatar size={36} />
             <span style={{ fontSize: 18, fontWeight: 600, color: "#212121" }}>{ticket.adults}</span>
           </div>
 
           <div className="flex justify-center items-center gap-2 mb-1">
             <span style={{ fontSize: 36, fontWeight: 700, color: "#212121" }}>₹{ticket.amount}</span>
-            <CheckCircle2 size={28} color="#fff" fill="#4CAF50" />
+            <VerifiedBadge size={28} />
           </div>
           <p className="text-center mb-1" style={{ fontSize: 13, fontWeight: 600, color: "#212121", letterSpacing: 2, textTransform: "uppercase" }}>Ticket Booked Successfully</p>
           <p className="text-center mb-4" style={{ fontSize: 12, color: "#757575" }}>{formatDateTime(ticket.issuedOn)}</p>
@@ -84,8 +85,8 @@ function TicketPage() {
             <div className="flex justify-around mb-4" style={{ fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500 }}>
               <span>Hours</span><span>Minutes</span><span>Seconds</span>
             </div>
-            <button onClick={() => nav({ to: "/qr" })} className="w-full active:scale-[0.98] transition-transform" style={{ background: "#29B5E8", color: "#fff", borderRadius: 8, padding: "14px 0", fontSize: 16, fontWeight: 600, border: "none" }}>
-              View your Tickets
+            <button onClick={() => nav({ to: "/qr" })} className="w-full active:scale-[0.98] transition-transform" style={{ background: "#29B5E8", color: "#fff", borderRadius: 8, padding: "14px 0", fontSize: 18, fontWeight: 600, border: "none", fontStyle: "italic", fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif", letterSpacing: 0.3 }}>
+              View your Tickets...
             </button>
           </div>
 
@@ -162,8 +163,8 @@ function TicketPage() {
       {/* Floating nav */}
       <nav style={{
         position: "fixed", bottom: 16, left: "50%", transform: "translateX(-50%)",
-        width: "calc(100% - 32px)", maxWidth: 398, background: "#1A237E", borderRadius: 40,
-        padding: "12px 24px", boxShadow: "0 4px 20px rgba(26,35,126,0.4)", zIndex: 100,
+        width: "auto", background: "#1A237E", borderRadius: 40,
+        padding: "10px 20px", gap: 24, boxShadow: "0 4px 20px rgba(26,35,126,0.4)", zIndex: 100,
       }} className="flex justify-around items-center">
         {[{Icon:Home,label:"Home"},{Icon:Gift,label:"CASH BACK"},{Icon:Clock,label:"Help"}].map(({Icon,label}) => (
           <button key={label} className="flex flex-col items-center gap-1">
