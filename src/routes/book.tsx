@@ -23,6 +23,8 @@ function BookPage() {
   const [to, setTo] = useState("Memnagar");
   const [adults, setAdults] = useState(1);
   const [amount, setAmount] = useState<string>("10");
+  const [hours, setHours] = useState<string>("3");
+  const [minutes, setMinutes] = useState<string>("0");
   const [err, setErr] = useState("");
 
   useEffect(() => {
@@ -34,6 +36,10 @@ function BookPage() {
     if (from === to) { setErr("Departure and destination cannot be the same."); return; }
     const amt = Number(amount);
     if (!amt || amt <= 0) { setErr("Please enter a valid fare amount."); return; }
+    const h = Math.max(0, Math.min(23, Number(hours) || 0));
+    const m = Math.max(0, Math.min(59, Number(minutes) || 0));
+    const totalMs = (h * 60 + m) * 60 * 1000;
+    if (totalMs <= 0) { setErr("Please set a valid ticket duration."); return; }
     const now = new Date();
     setTicket({
       orderId: randDigits(11),
@@ -44,7 +50,7 @@ function BookPage() {
       adults,
       busType: "AC",
       issuedOn: now.toISOString(),
-      validUntil: new Date(now.getTime() + 3 * 60 * 60 * 1000).toISOString(),
+      validUntil: new Date(now.getTime() + totalMs).toISOString(),
     });
     nav({ to: "/ticket" });
   };
@@ -91,6 +97,36 @@ function BookPage() {
                 style={{ ...selectStyle, paddingLeft: 32 }}
                 className="w-full"
               />
+            </div>
+          </Field>
+          <Field label="TICKET VALIDITY">
+            <div className="flex items-center gap-3">
+              <div className="flex-1 relative">
+                <input
+                  type="number"
+                  inputMode="numeric"
+                  min={0}
+                  max={23}
+                  value={hours}
+                  onChange={(e) => { setHours(e.target.value); setErr(""); }}
+                  style={{ ...selectStyle, paddingRight: 44 }}
+                  className="w-full"
+                />
+                <span style={{ position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)", color: "#757575", fontSize: 13 }}>hr</span>
+              </div>
+              <div className="flex-1 relative">
+                <input
+                  type="number"
+                  inputMode="numeric"
+                  min={0}
+                  max={59}
+                  value={minutes}
+                  onChange={(e) => { setMinutes(e.target.value); setErr(""); }}
+                  style={{ ...selectStyle, paddingRight: 50 }}
+                  className="w-full"
+                />
+                <span style={{ position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)", color: "#757575", fontSize: 13 }}>min</span>
+              </div>
             </div>
           </Field>
           {err && <p style={{ color: "#D32F2F", fontSize: 13 }}>{err}</p>}
