@@ -4,6 +4,59 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-paytm-blue: #00BAF2;
+  --color-teal-button: #29B5E8;
+  --color-dark-navy: #1A237E;
+  --color-sky-card: #DCF0FB;
+  --color-page-bg: #F5F5F5;
+  --color-text-primary: #212121;
+  --color-text-secondary: #757575;
+  --color-text-muted: #9E9E9E;
+  --color-green-check: #4CAF50;
+  --color-separator: #E0E0E0;
+  --color-accordion-border: #F0F0F0;
+  --font-sans: "Roboto", system-ui, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
+}
+
+html, body {
+  font-family: "Roboto", system-ui, sans-serif;
+  background: #ECECEC;
+  overflow-x: hidden;
+}
+
+.app-shell {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  background: #FFFFFF;
+  position: relative;
+}
+@media (min-width: 500px) {
+  .app-shell { box-shadow: 0 0 40px rgba(0,0,0,0.15); }
+}
+
+.paytm-logo {
+  font-family: "Roboto", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #00BAF2;
+  font-style: italic;
+  letter-spacing: -0.5px;
+}
+
+.timer-digits {
+  font-family: "Roboto Mono", ui-monospace, monospace;
+  font-size: 40px;
+  font-weight: 700;
+  color: #1A237E;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+input { font-size: 16px; }
+
 /*
  * Design system definition.
  *
