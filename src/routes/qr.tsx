@@ -61,36 +61,38 @@ function QrPage() {
         <span style={{ fontSize: 14, fontWeight: 500, color: "#00BAF2" }}>Help</span>
       </header>
 
-      <div style={{ padding: "14px 16px 4px" }} className="flex items-center justify-center gap-3">
-        <span style={{ fontSize: 20, fontWeight: 600, color: "#212121" }}>{trunc(ticket.from)}</span>
-        <span style={{ fontSize: 20, color: "#212121" }}>→</span>
-        <span style={{ fontSize: 20, fontWeight: 600, color: "#212121" }}>{trunc(ticket.to)}</span>
+      <div style={{ padding: "0 16px" }} className="flex items-center justify-between">
+        <span style={{ fontSize: 24, fontWeight: 700, color: "#212121" }}>{trunc(ticket.from)}</span>
+        <span style={{ fontSize: 22, color: "#212121", margin: "0 8px" }}>→</span>
+        <span style={{ fontSize: 24, fontWeight: 700, color: "#212121" }}>{trunc(ticket.to)}</span>
       </div>
 
-      <p className="text-center" style={{ fontSize: 13, fontWeight: 500, color: "#29B5E8", padding: "10px 16px 4px" }}>Scan this QR at Entry & Exit Points</p>
+      <p className="text-center" style={{ fontSize: 13, fontWeight: 500, color: "#212121", padding: "10px 16px 4px" }}>Scan this QR at Entry & Exit Points</p>
 
-      <div className="flex justify-center" style={{ margin: "12px auto" }}>
-        <div style={{ padding: 8, border: "1px solid #F0F0F0", borderRadius: 8, background: "#fff" }}>
+      <div className="flex justify-center" style={{ margin: "8px auto" }}>
+        <div style={{ padding: 8, background: "#fff" }}>
           <QRCodeSVG
             value={`TICKET:${ticket.orderId}:${ticket.from}:${ticket.to}`}
             fgColor="#000000"
             bgColor="#FFFFFF"
             level="M"
-            size={240}
+            size={300}
           />
         </div>
       </div>
 
-      <div style={{ padding: "12px 16px" }}>
+      <div style={{ padding: "8px 16px" }}>
         <p className="text-center mb-1" style={{ fontSize: 13, color: "#9E9E9E" }}>Your ticket is valid for</p>
         {expired ? (
           <p className="text-center" style={{ fontSize: 24, fontWeight: 700, color: "#D32F2F", letterSpacing: 2 }}>TICKET EXPIRED</p>
         ) : (
-          <p className="timer-digits" style={{ color: "#000000" }}>{t.h} : {t.m} : {t.s}</p>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+            <div className="timer-digits" style={{ color: "#000000", display: "inline-block" }}>{t.h} : {t.m} : {t.s}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", columnGap: 18, fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500, marginTop: 2, textAlign: "center" }}>
+              <span>Hours</span><span>Minutes</span><span>Seconds</span>
+            </div>
+          </div>
         )}
-        <div className="flex justify-around" style={{ fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500, marginTop: 4 }}>
-          <span>Hours</span><span>Minutes</span><span>Seconds</span>
-        </div>
       </div>
 
       <div style={{ background: "#fff", padding: "0 16px" }}>
