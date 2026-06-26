@@ -1,8 +1,9 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
-import { ArrowLeft, ChevronUp, ChevronDown, Ticket as TicketIcon } from "lucide-react";
+import { ArrowLeft, ChevronUp, ChevronDown } from "lucide-react";
 import { formatDateTime, formatTimer, useTicket } from "@/lib/ticket-context";
+import janmargAsset from "@/assets/janmarg.png.asset.json";
 
 export const Route = createFileRoute("/qr")({
   head: () => ({ meta: [{ title: "QR Ticket — BRTS" }] }),
@@ -38,7 +39,7 @@ function QrPage() {
       <header style={{ background: "#fff", height: 56, padding: "0 16px", borderBottom: "1px solid #F0F0F0" }} className="flex items-center">
         <button onClick={() => nav({ to: "/ticket" })} aria-label="Back" className="mr-2"><ArrowLeft size={24} color="#212121" /></button>
         <div className="flex-1 flex items-center gap-2">
-          <TicketIcon size={22} color="#29B5E8" />
+          <img src={janmargAsset.url} alt="Janmarg" style={{ height: 22 }} />
           <span style={{ fontSize: 16, fontWeight: 600, color: "#212121" }}>1 QR Ticket</span>
         </div>
         <span style={{ fontSize: 14, fontWeight: 500, color: "#00BAF2" }}>Help</span>
@@ -56,7 +57,7 @@ function QrPage() {
         <div style={{ padding: 8, border: "1px solid #F0F0F0", borderRadius: 8, background: "#fff" }}>
           <QRCodeSVG
             value={`TICKET:${ticket.orderId}:${ticket.from}:${ticket.to}`}
-            fgColor="#1A237E"
+            fgColor="#000000"
             bgColor="#FFFFFF"
             level="M"
             size={240}
@@ -69,7 +70,7 @@ function QrPage() {
         {expired ? (
           <p className="text-center" style={{ fontSize: 24, fontWeight: 700, color: "#D32F2F", letterSpacing: 2 }}>TICKET EXPIRED</p>
         ) : (
-          <p className="timer-digits">{t.h} : {t.m} : {t.s}</p>
+          <p className="timer-digits" style={{ color: "#000" }}>{t.h} : {t.m} : {t.s}</p>
         )}
         <div className="flex justify-around" style={{ fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500, marginTop: 4 }}>
           <span>Hours</span><span>Minutes</span><span>Seconds</span>
