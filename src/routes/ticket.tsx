@@ -80,7 +80,7 @@ function TicketPage() {
             {expired ? (
               <p className="text-center" style={{ fontSize: 24, fontWeight: 700, color: "#D32F2F", letterSpacing: 2 }}>TICKET EXPIRED</p>
             ) : (
-              <p className="timer-digits">{t.h} : {t.m} : {t.s}</p>
+              <p className="timer-digits" style={{ color: "#000000" }}>{t.h} : {t.m} : {t.s}</p>
             )}
             <div className="flex justify-around mb-4" style={{ fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500 }}>
               <span>Hours</span><span>Minutes</span><span>Seconds</span>
@@ -91,7 +91,7 @@ function TicketPage() {
           </div>
 
           {/* Expected Arrivals */}
-          <div style={{ background: "#BFE4F6", borderRadius: 14, padding: 14, marginBottom: 12 }}>
+          <div style={{ background: "#FFFFFF", borderRadius: 14, padding: 14, marginBottom: 12 }}>
             <div className="flex justify-between items-center mb-2.5">
               <span style={{ fontSize: 14, fontWeight: 600, color: "#212121" }}>Expected Arrivals</span>
               <span className="flex items-center gap-1" style={{ fontSize: 11, color: "#757575" }}>
@@ -113,8 +113,9 @@ function TicketPage() {
           </div>
         </div>
 
-        {/* Gradient stripe */}
-        <div style={{ height: 8, background: "linear-gradient(90deg, #29B5E8 0%, #1976D2 50%, #1A237E 100%)" }} />
+        {/* Stacked bottom stripes */}
+        <div style={{ height: 4, background: "#7FCDEC" }} />
+        <div style={{ height: 6, background: "#1976D2" }} />
       </div>
 
       {/* Trip Details accordion */}
