@@ -72,7 +72,7 @@ function TicketPage() {
 
           <div className="flex justify-center items-center gap-2 mb-1">
             <span style={{ fontSize: 36, fontWeight: 700, color: "#212121" }}>₹{ticket.amount}</span>
-            <VerifiedBadge size={28} />
+              <VerifiedBadge size={22} />
           </div>
           <p className="text-center mb-1" style={{ fontSize: 13, fontWeight: 600, color: "#212121", letterSpacing: 2, textTransform: "uppercase" }}>Ticket Booked Successfully</p>
           <p className="text-center mb-4" style={{ fontSize: 12, color: "#757575" }}>{formatDateTime(ticket.issuedOn)}</p>
@@ -85,7 +85,7 @@ function TicketPage() {
             ) : (
               <div style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
                 <div className="timer-digits" style={{ color: "#000000", display: "inline-block" }}>{t.h} : {t.m} : {t.s}</div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", columnGap: 18, fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500, marginTop: 2, marginBottom: 14, textAlign: "center" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", columnGap: 18, fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500, marginTop: 2, marginBottom: 18, textAlign: "center" }}>
                   <span>Hours</span><span>Minutes</span><span>Seconds</span>
                 </div>
               </div>

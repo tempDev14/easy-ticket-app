@@ -24,7 +24,7 @@ export const Route = createFileRoute("/qr")({
   component: QrPage,
 });
 
-function trunc(s: string) { return s.length >= 12 ? s.slice(0, 10) + ".." : s; }
+function trunc(s: string) { return s.length >= 18 ? s.slice(0, 16) + ".." : s; }
 
 function QrPage() {
   const nav = useNavigate();
@@ -61,10 +61,10 @@ function QrPage() {
         <span style={{ fontSize: 14, fontWeight: 500, color: "#00BAF2" }}>Help</span>
       </header>
 
-      <div style={{ padding: "0 16px" }} className="flex items-center justify-between">
-        <span style={{ fontSize: 24, fontWeight: 700, color: "#212121" }}>{trunc(ticket.from)}</span>
-        <span style={{ fontSize: 22, color: "#212121", margin: "0 8px" }}>→</span>
-        <span style={{ fontSize: 24, fontWeight: 700, color: "#212121" }}>{trunc(ticket.to)}</span>
+      <div style={{ padding: "6px 16px 0" }} className="flex items-center justify-center">
+        <span style={{ fontSize: 22, fontWeight: 700, color: "#212121" }}>{trunc(ticket.from)}</span>
+        <span style={{ fontSize: 20, color: "#212121", margin: "0 10px" }}>→</span>
+        <span style={{ fontSize: 22, fontWeight: 700, color: "#212121" }}>{trunc(ticket.to)}</span>
       </div>
 
       <p className="text-center" style={{ fontSize: 13, fontWeight: 500, color: "#212121", padding: "10px 16px 4px" }}>Scan this QR at Entry & Exit Points</p>
@@ -81,8 +81,8 @@ function QrPage() {
         </div>
       </div>
 
-      <div style={{ padding: "8px 16px" }}>
-        <p className="text-center mb-1" style={{ fontSize: 13, color: "#9E9E9E" }}>Your ticket is valid for</p>
+      <div style={{ padding: "16px 16px 20px" }}>
+        <p className="text-center" style={{ fontSize: 13, color: "#9E9E9E", marginBottom: 6 }}>Your ticket is valid for</p>
         {expired ? (
           <p className="text-center" style={{ fontSize: 24, fontWeight: 700, color: "#D32F2F", letterSpacing: 2 }}>TICKET EXPIRED</p>
         ) : (
