@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight, Bus, ChevronDown, Clock, Gift, Home, RefreshCw } from "lucide-react";
+import { ArrowLeft, ArrowRight, BusFront, ChevronDown, Clock, Gift, Home, RefreshCw } from "lucide-react";
 import { formatDateTime, formatTimer, useTicket } from "@/lib/ticket-context";
 import { BoyAvatar, VerifiedBadge } from "@/components/Avatar";
 import janmargAsset from "@/assets/janmarg.png.asset.json";
@@ -91,17 +91,17 @@ function TicketPage() {
           </div>
 
           {/* Expected Arrivals */}
-          <div style={{ paddingTop: 8 }}>
+          <div style={{ background: "#BFE4F6", borderRadius: 14, padding: 14, marginBottom: 12 }}>
             <div className="flex justify-between items-center mb-2.5">
               <span style={{ fontSize: 14, fontWeight: 600, color: "#212121" }}>Expected Arrivals</span>
-              <span className="flex items-center gap-1" style={{ fontSize: 11, color: "#9E9E9E" }}>
-                <RefreshCw size={11} color="#9E9E9E" /> Auto refresh in 2 mins
+              <span className="flex items-center gap-1" style={{ fontSize: 11, color: "#757575" }}>
+                <RefreshCw size={11} color="#757575" /> Auto refresh in 2 mins
               </span>
             </div>
-            <div className="flex gap-3 mb-2">
-              {[{n:"3U",a:1},{n:"9U-VM",a:1}].map((b) => (
-                <div key={b.n} className="flex items-center gap-1.5 flex-1">
-                  <Bus size={20} color="#1A237E" />
+            <div className="flex gap-3 mb-1">
+              {[{n:"4U-AL",a:1},{n:"9U-VM",a:1}].map((b) => (
+                <div key={b.n} className="flex items-center gap-2 flex-1">
+                  <BusFront size={22} color="#1A237E" strokeWidth={1.8} />
                   <div>
                     <p style={{ fontSize: 13, fontWeight: 600, color: "#212121" }}>{b.n}</p>
                     <p style={{ fontSize: 11, color: "#757575" }}>Arriving in {b.a} min</p>
@@ -109,12 +109,12 @@ function TicketPage() {
                 </div>
               ))}
             </div>
-            <p className="pb-3" style={{ fontSize: 13, color: "#00BAF2", fontWeight: 500, cursor: "pointer" }}>Check other buses ›</p>
+            <p style={{ fontSize: 13, color: "#00BAF2", fontWeight: 500, cursor: "pointer", marginTop: 6, borderBottom: "1.5px solid #00BAF2", display: "inline-block", paddingBottom: 1 }}>Check other buses ›</p>
           </div>
         </div>
 
         {/* Gradient stripe */}
-        <div style={{ height: 6, background: "linear-gradient(90deg, #1565C0 0%, #0D47A1 50%, #0A2D82 100%)" }} />
+        <div style={{ height: 8, background: "linear-gradient(90deg, #29B5E8 0%, #1976D2 50%, #1A237E 100%)" }} />
       </div>
 
       {/* Trip Details accordion */}

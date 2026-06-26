@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { ArrowLeft, ChevronUp, ChevronDown } from "lucide-react";
 import { formatDateTime, formatTimer, useTicket } from "@/lib/ticket-context";
-import janmargAsset from "@/assets/janmarg.png.asset.json";
+import ticketIcon from "@/assets/ticket-icon.png.asset.json";
 
 export const Route = createFileRoute("/qr")({
   head: () => ({ meta: [{ title: "QR Ticket — BRTS" }] }),
   component: QrPage,
 });
 
-function trunc(s: string, n = 14) { return s.length > n ? s.slice(0, n) + "..." : s; }
+function trunc(s: string) { return s.length >= 12 ? s.slice(0, 10) + ".." : s; }
 
 function QrPage() {
   const nav = useNavigate();
@@ -39,16 +39,16 @@ function QrPage() {
       <header style={{ background: "#fff", height: 56, padding: "0 16px", borderBottom: "1px solid #F0F0F0" }} className="flex items-center">
         <button onClick={() => nav({ to: "/ticket" })} aria-label="Back" className="mr-2"><ArrowLeft size={24} color="#212121" /></button>
         <div className="flex-1 flex items-center gap-2">
-          <img src={janmargAsset.url} alt="Janmarg" style={{ height: 22 }} />
+          <img src={ticketIcon.url} alt="Ticket" style={{ height: 24, width: 28, objectFit: "contain" }} />
           <span style={{ fontSize: 16, fontWeight: 600, color: "#212121" }}>1 QR Ticket</span>
         </div>
         <span style={{ fontSize: 14, fontWeight: 500, color: "#00BAF2" }}>Help</span>
       </header>
 
-      <div style={{ padding: "8px 16px 0" }} className="flex items-center justify-center gap-1.5">
-        <span style={{ fontSize: 15, fontWeight: 500, color: "#212121", maxWidth: "40%", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{trunc(ticket.from)}</span>
-        <span style={{ fontSize: 15, color: "#212121" }}>→</span>
-        <span style={{ fontSize: 15, fontWeight: 500, color: "#212121", maxWidth: "40%", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{trunc(ticket.to)}</span>
+      <div style={{ padding: "14px 16px 4px" }} className="flex items-center justify-center gap-3">
+        <span style={{ fontSize: 20, fontWeight: 600, color: "#212121" }}>{trunc(ticket.from)}</span>
+        <span style={{ fontSize: 20, color: "#212121" }}>→</span>
+        <span style={{ fontSize: 20, fontWeight: 600, color: "#212121" }}>{trunc(ticket.to)}</span>
       </div>
 
       <p className="text-center" style={{ fontSize: 13, fontWeight: 500, color: "#29B5E8", padding: "10px 16px 4px" }}>Scan this QR at Entry & Exit Points</p>
@@ -70,7 +70,7 @@ function QrPage() {
         {expired ? (
           <p className="text-center" style={{ fontSize: 24, fontWeight: 700, color: "#D32F2F", letterSpacing: 2 }}>TICKET EXPIRED</p>
         ) : (
-          <p className="timer-digits" style={{ color: "#000" }}>{t.h} : {t.m} : {t.s}</p>
+          <p className="timer-digits" style={{ color: "#000000" }}>{t.h} : {t.m} : {t.s}</p>
         )}
         <div className="flex justify-around" style={{ fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500, marginTop: 4 }}>
           <span>Hours</span><span>Minutes</span><span>Seconds</span>
