@@ -3,7 +3,21 @@ import { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { ArrowLeft, ChevronUp, ChevronDown } from "lucide-react";
 import { formatDateTime, formatTimer, useTicket } from "@/lib/ticket-context";
-import ticketIcon from "@/assets/ticket-icon.png.asset.json";
+
+function TicketIcon({ size = 28 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="ticketGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#18B8F3" />
+          <stop offset="100%" stopColor="#0A86D9" />
+        </linearGradient>
+      </defs>
+      <path d="M4 6 H17 C17 7.2 18 8.2 19.2 8.2 V15.8 C18 15.8 17 16.8 17 18 H4 C4 16.8 3 15.8 1.8 15.8 V8.2 C3 8.2 4 7.2 4 6 Z" fill="url(#ticketGradient)" stroke="#1976D2" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M17 6 H20 C20 7.2 21 8.2 22.2 8.2 V15.8 C21 15.8 20 16.8 20 18 H17 Z" fill="white" stroke="#1976D2" strokeWidth="1.4" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 export const Route = createFileRoute("/qr")({
   head: () => ({ meta: [{ title: "QR Ticket — BRTS" }] }),
@@ -40,7 +54,7 @@ function QrPage() {
         <button onClick={() => nav({ to: "/ticket" })} aria-label="Back" className="mr-2"><ArrowLeft size={24} color="#212121" /></button>
         <div className="flex-1 flex items-center gap-3">
           <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#E3F2FD", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <img src={ticketIcon.url} alt="Ticket" style={{ height: 28, width: 32, objectFit: "contain" }} />
+            <TicketIcon size={26} />
           </div>
           <span style={{ fontSize: 17, fontWeight: 600, color: "#212121" }}>1 QR Ticket</span>
         </div>
