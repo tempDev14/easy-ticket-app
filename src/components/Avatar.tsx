@@ -1,19 +1,33 @@
 export function BoyAvatar({ size = 36 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="32" cy="32" r="32" fill="#E3F2FD" />
-      {/* face */}
-      <path d="M20 36c0-7 5.5-12 12-12s12 5 12 12v4c0 6-5 11-12 11s-12-5-12-11v-4z" fill="#FFD8B5" />
-      {/* hair */}
-      <path d="M18 30c0-9 7-16 14-16s14 6 14 15c0 2-1 4-2 5-2-5-6-8-12-8s-10 3-12 8c-1-1-2-2-2-4z" fill="#1F4FB6" />
-      <path d="M19 28c2-4 7-7 13-7s11 3 13 7c-3-2-7-3-13-3s-10 1-13 3z" fill="#163E94" />
-      {/* eyes */}
-      <ellipse cx="27" cy="37" rx="1.6" ry="2.2" fill="#1A1A1A" />
-      <ellipse cx="37" cy="37" rx="1.6" ry="2.2" fill="#1A1A1A" />
-      {/* smile */}
-      <path d="M27 44c1.5 2 3 3 5 3s3.5-1 5-3" stroke="#7A4A2E" strokeWidth="1.4" strokeLinecap="round" fill="none" />
-      {/* neck/shoulders peek */}
-      <path d="M16 60c2-5 8-8 16-8s14 3 16 8v4H16v-4z" fill="#1F4FB6" />
+      <defs>
+        <clipPath id="avatarClip"><circle cx="32" cy="32" r="32" /></clipPath>
+      </defs>
+      <g clipPath="url(#avatarClip)">
+        <rect width="64" height="64" fill="#EDEDED" />
+        {/* shoulders / brown shirt */}
+        <path d="M8 64c2-9 11-14 24-14s22 5 24 14v4H8v-4z" fill="#A8694A" />
+        {/* neck */}
+        <path d="M27 46h10v8H27z" fill="#E8B391" />
+        {/* face */}
+        <ellipse cx="32" cy="34" rx="13" ry="14" fill="#F2C19A" />
+        {/* ears */}
+        <ellipse cx="19" cy="36" rx="2.2" ry="3" fill="#E8B391" />
+        <ellipse cx="45" cy="36" rx="2.2" ry="3" fill="#E8B391" />
+        {/* hair main */}
+        <path d="M19 30c0-9 6-16 13-16 8 0 14 6 14 14 0 3-0.5 5-1.5 7-2-5-5-7-10-8-2 4-6 6-12 6-2 0-3-1-3.5-3z" fill="#1F3B7A" />
+        {/* hair front swoosh */}
+        <path d="M22 24c3-5 8-8 13-7 4 1 7 4 8 8-3-2-7-3-11-2-3 1-6 2-10 1z" fill="#15296B" />
+        {/* cheeks */}
+        <circle cx="23.5" cy="40" r="2.4" fill="#F4A6A6" opacity="0.75" />
+        <circle cx="40.5" cy="40" r="2.4" fill="#F4A6A6" opacity="0.75" />
+        {/* eyes */}
+        <ellipse cx="27" cy="36" rx="1.4" ry="2" fill="#1A1A1A" />
+        <ellipse cx="37" cy="36" rx="1.4" ry="2" fill="#1A1A1A" />
+        {/* smile */}
+        <path d="M28 43c1.2 1.6 2.5 2.4 4 2.4s2.8-0.8 4-2.4" stroke="#6B3A1F" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+      </g>
     </svg>
   );
 }
