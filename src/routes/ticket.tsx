@@ -83,9 +83,9 @@ function TicketPage() {
             {expired ? (
               <p className="text-center" style={{ fontSize: 24, fontWeight: 700, color: "#D32F2F", letterSpacing: 2 }}>TICKET EXPIRED</p>
             ) : (
-              <div style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
-                <div className="timer-digits" style={{ color: "#000000", display: "inline-block" }}>{t.h} : {t.m} : {t.s}</div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", columnGap: 18, fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500, marginTop: 2, marginBottom: 18, textAlign: "center" }}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%", marginBottom: 18 }}>
+                <div className="timer-digits" style={{ color: "#000000" }}>{t.h}:{t.m}:{t.s}</div>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, auto)", columnGap: 14, fontSize: 10, color: "#9E9E9E", letterSpacing: 1, textTransform: "uppercase", fontWeight: 500, marginTop: 4, textAlign: "center" }}>
                   <span>Hours</span><span>Minutes</span><span>Seconds</span>
                 </div>
               </div>
