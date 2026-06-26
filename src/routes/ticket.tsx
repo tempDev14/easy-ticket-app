@@ -2,7 +2,8 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, BusFront, ChevronDown, Clock, Gift, Home, RefreshCw } from "lucide-react";
 import { formatDateTime, formatTimer, useTicket } from "@/lib/ticket-context";
-import { BoyAvatar, VerifiedBadge } from "@/components/Avatar";
+import { VerifiedBadge } from "@/components/Avatar";
+import avatarAsset from "@/assets/avatar.svg.asset.json";
 import janmargAsset from "@/assets/janmarg.png.asset.json";
 import paytmAsset from "@/assets/paytm.png.asset.json";
 
@@ -62,9 +63,11 @@ function TicketPage() {
           <p className="text-center" style={{ fontSize: 13, color: "#757575" }}>{ticket.busType}</p>
           <p className="text-center mb-3" style={{ fontSize: 13, color: "#757575" }}>{ticket.adults} Adult Ticket{ticket.adults > 1 ? "s" : ""}</p>
 
-          <div className="flex justify-center items-center gap-2 mb-1.5">
-            <BoyAvatar size={36} />
-            <span style={{ fontSize: 18, fontWeight: 600, color: "#212121" }}>{ticket.adults}</span>
+          <div className="flex justify-center mb-1.5">
+            <div style={{ background: "#fff", borderRadius: 999, padding: "4px 14px 4px 4px", display: "inline-flex", alignItems: "center", gap: 8, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
+              <img src={avatarAsset.url} alt="" style={{ width: 32, height: 32, objectFit: "contain" }} />
+              <span style={{ fontSize: 16, fontWeight: 600, color: "#212121" }}>{ticket.adults}</span>
+            </div>
           </div>
 
           <div className="flex justify-center items-center gap-2 mb-1">
