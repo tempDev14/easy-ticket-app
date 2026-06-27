@@ -50,7 +50,7 @@ function QrPage() {
   return (
     <div style={{ background: "#fff", minHeight: "100dvh" }}>
       <div style={{ height: 24, background: "#fff" }} />
-      <header style={{ background: "#fff", height: 56, padding: "0 16px", borderBottom: "1px solid #F0F0F0" }} className="flex items-center">
+      <header style={{ background: "#fff", height: 64, padding: "0 16px", borderBottom: "1px solid #F0F0F0" }} className="flex items-center">
         <button onClick={() => nav({ to: "/ticket" })} aria-label="Back" className="mr-2"><ArrowLeft size={24} color="#212121" /></button>
         <div className="flex-1 flex items-center gap-3">
           <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#E3F2FD", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -61,13 +61,13 @@ function QrPage() {
         <span style={{ fontSize: 14, fontWeight: 500, color: "#00BAF2" }}>Help</span>
       </header>
 
-      <div style={{ padding: "20px 16px 4px" }} className="flex items-center justify-center">
+      <div style={{ padding: "28px 16px 8px" }} className="flex items-center justify-center">
         <span style={{ fontSize: 22, fontWeight: 700, color: "#212121" }}>{trunc(ticket.from)}</span>
         <span style={{ fontSize: 20, color: "#212121", margin: "0 10px" }}>→</span>
         <span style={{ fontSize: 22, fontWeight: 700, color: "#212121" }}>{trunc(ticket.to)}</span>
       </div>
 
-      <p className="text-center" style={{ fontSize: 13, fontWeight: 500, color: "#212121", padding: "16px 16px 14px" }}>Scan this QR at Entry & Exit Points</p>
+      <p className="text-center" style={{ fontSize: 13, fontWeight: 500, color: "#212121", padding: "22px 16px 20px" }}>Scan this QR at Entry & Exit Points</p>
 
       <div className="flex justify-center" style={{ margin: "12px auto 8px" }}>
         <div style={{ padding: 8, background: "#fff" }}>
