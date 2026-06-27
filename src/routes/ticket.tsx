@@ -1,9 +1,10 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight, BusFront, ChevronDown, Clock, Gift, Home, RefreshCw } from "lucide-react";
+import { ArrowLeft, ArrowRight, BusFront, ChevronDown, Clock, Home, RefreshCw } from "lucide-react";
 import { formatDateTime, formatTimer, useTicket } from "@/lib/ticket-context";
 import { VerifiedBadge } from "@/components/Avatar";
-import avatarAsset from "@/assets/avatar.svg.asset.json";
+import avatarAsset from "@/assets/avatar.png.asset.json";
+import cashbackAsset from "@/assets/cashback.png.asset.json";
 import janmargAsset from "@/assets/janmarg.png.asset.json";
 import paytmAsset from "@/assets/paytm.png.asset.json";
 
@@ -72,13 +73,13 @@ function TicketPage() {
 
           <div className="flex justify-center items-center gap-2 mb-1">
             <span style={{ fontSize: 36, fontWeight: 700, color: "#212121" }}>₹{ticket.amount}</span>
-              <VerifiedBadge size={22} />
+              <VerifiedBadge size={30} />
           </div>
           <p className="text-center mb-1" style={{ fontSize: 13, fontWeight: 600, color: "#212121", letterSpacing: 2, textTransform: "uppercase" }}>Ticket Booked Successfully</p>
-          <p className="text-center mb-4" style={{ fontSize: 12, color: "#757575" }}>{formatDateTime(ticket.issuedOn)}</p>
+          <p className="text-center" style={{ fontSize: 12, color: "#757575", marginTop: 12, marginBottom: 16 }}>{formatDateTime(ticket.issuedOn)}</p>
 
           {/* Inner white card */}
-          <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 16 }}>
+          <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 24 }}>
             <p className="text-center mb-2" style={{ fontSize: 13, color: "#9E9E9E" }}>Your ticket is valid for</p>
             {expired ? (
               <p className="text-center" style={{ fontSize: 24, fontWeight: 700, color: "#D32F2F", letterSpacing: 2 }}>TICKET EXPIRED</p>
@@ -96,7 +97,7 @@ function TicketPage() {
           </div>
 
           {/* Expected Arrivals */}
-          <div style={{ background: "#FFFFFF", borderRadius: 14, padding: 14, marginBottom: 12 }}>
+          <div style={{ background: "#FFFFFF", borderRadius: 14, padding: 14, marginBottom: 16, marginTop: 4 }}>
             <div className="flex justify-between items-center mb-2.5">
               <span style={{ fontSize: 14, fontWeight: 600, color: "#212121" }}>Expected Arrivals</span>
               <span className="flex items-center gap-1" style={{ fontSize: 11, color: "#757575" }}>
@@ -172,12 +173,18 @@ function TicketPage() {
         width: "auto", background: "#1A237E", borderRadius: 40,
         padding: "10px 20px", gap: 24, boxShadow: "0 4px 20px rgba(26,35,126,0.4)", zIndex: 100,
       }} className="flex justify-around items-center">
-        {[{Icon:Home,label:"Home"},{Icon:Gift,label:"CASH BACK"},{Icon:Clock,label:"Help"}].map(({Icon,label}) => (
-          <button key={label} className="flex flex-col items-center gap-1">
-            <Icon size={22} color="#fff" />
-            <span style={{ fontSize: 10, color: "#fff", fontWeight: 500 }}>{label}</span>
-          </button>
-        ))}
+        <button className="flex flex-col items-center gap-1">
+          <Home size={22} color="#fff" />
+          <span style={{ fontSize: 10, color: "#fff", fontWeight: 500 }}>Home</span>
+        </button>
+        <button className="flex flex-col items-center gap-1">
+          <img src={cashbackAsset.url} alt="" style={{ height: 22, width: "auto", filter: "brightness(0) invert(1)" }} />
+          <span style={{ fontSize: 10, color: "#fff", fontWeight: 500 }}>Cashback</span>
+        </button>
+        <button className="flex flex-col items-center gap-1">
+          <Clock size={22} color="#fff" />
+          <span style={{ fontSize: 10, color: "#fff", fontWeight: 500 }}>Help</span>
+        </button>
       </nav>
     </div>
   );

@@ -61,15 +61,15 @@ function QrPage() {
         <span style={{ fontSize: 14, fontWeight: 500, color: "#00BAF2" }}>Help</span>
       </header>
 
-      <div style={{ padding: "6px 16px 0" }} className="flex items-center justify-center">
+      <div style={{ padding: "20px 16px 4px" }} className="flex items-center justify-center">
         <span style={{ fontSize: 22, fontWeight: 700, color: "#212121" }}>{trunc(ticket.from)}</span>
         <span style={{ fontSize: 20, color: "#212121", margin: "0 10px" }}>→</span>
         <span style={{ fontSize: 22, fontWeight: 700, color: "#212121" }}>{trunc(ticket.to)}</span>
       </div>
 
-      <p className="text-center" style={{ fontSize: 13, fontWeight: 500, color: "#212121", padding: "10px 16px 4px" }}>Scan this QR at Entry & Exit Points</p>
+      <p className="text-center" style={{ fontSize: 13, fontWeight: 500, color: "#212121", padding: "16px 16px 14px" }}>Scan this QR at Entry & Exit Points</p>
 
-      <div className="flex justify-center" style={{ margin: "8px auto" }}>
+      <div className="flex justify-center" style={{ margin: "12px auto 8px" }}>
         <div style={{ padding: 8, background: "#fff" }}>
           <QRCodeSVG
             value={`TICKET:${ticket.orderId}:${ticket.from}:${ticket.to}`}
