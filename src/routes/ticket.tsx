@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, BusFront, ChevronDown, Clock, Home, RefreshCw } from "lucide-react";
 import { formatDateTime, formatTimer, useTicket } from "@/lib/ticket-context";
 import { VerifiedBadge } from "@/components/Avatar";
-import avatarAsset from "@/assets/avatar.png.asset.json";
-import cashbackAsset from "@/assets/cashback.png.asset.json";
+import avatarAsset from "@/assets/avatar.svg.asset.json";
+import cashbackAsset from "@/assets/cashback.svg.asset.json";
 import janmargAsset from "@/assets/janmarg.png.asset.json";
 import paytmAsset from "@/assets/paytm.png.asset.json";
 
@@ -76,7 +76,7 @@ function TicketPage() {
               <VerifiedBadge size={30} />
           </div>
           <p className="text-center mb-1" style={{ fontSize: 13, fontWeight: 600, color: "#212121", letterSpacing: 2, textTransform: "uppercase" }}>Ticket Booked Successfully</p>
-          <p className="text-center" style={{ fontSize: 12, color: "#757575", marginTop: 12, marginBottom: 16 }}>{formatDateTime(ticket.issuedOn)}</p>
+          <p className="text-center" style={{ fontSize: 12, color: "#757575", marginTop: 16, marginBottom: 24 }}>{formatDateTime(ticket.issuedOn)}</p>
 
           {/* Inner white card */}
           <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 24 }}>
@@ -178,7 +178,7 @@ function TicketPage() {
           <span style={{ fontSize: 10, color: "#fff", fontWeight: 500 }}>Home</span>
         </button>
         <button className="flex flex-col items-center gap-1">
-          <img src={cashbackAsset.url} alt="" style={{ height: 22, width: "auto", filter: "brightness(0) invert(1)" }} />
+          <img src={cashbackAsset.url} alt="" style={{ height: 22, width: "auto" }} />
           <span style={{ fontSize: 10, color: "#fff", fontWeight: 500 }}>Cashback</span>
         </button>
         <button className="flex flex-col items-center gap-1">
