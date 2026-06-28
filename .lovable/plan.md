@@ -1,19 +1,20 @@
-## Changes
+Yes — based on the reference images, the current ticket page needs these adjustments:
 
-**Ticket page (`src/routes/ticket.tsx`)**
-- Replace avatar SVG with new uploaded `image-24.png` (upload via `lovable-assets`, overwrite `src/assets/avatar.svg.asset.json` → new `avatar.png.asset.json`).
-- Enlarge `VerifiedBadge` next to ₹ amount from 22 → 28px so it matches the rupee text size.
-- Add more vertical margin around the issued date line (top + bottom ~10–12px).
-- Increase spacing between the inner white timer card and the Expected Arrivals card (marginBottom 16 → 24).
-- Floating nav: swap the `Gift` lucide icon for the uploaded Cashback logo (image-28). Upload it via `lovable-assets`, render with a white CSS filter (`filter: brightness(0) invert(1)`) so the navy logo appears white on the dark pill.
+1. Verified badge
+   - Current badge is 30px, which looks too large compared with the reference.
+   - Reduce it to about 26px so it sits closer to the ₹10 text size without overpowering it.
+   - Tighten the gap between ₹ amount and badge slightly.
 
-**QR page (`src/routes/qr.tsx`)**
-- Add top/bottom margin between header and the From → To row (currently 6px → ~16px top, 10px bottom).
-- Add more vertical breathing room around "Scan this QR at Entry & Exit Points" (padding 10/4 → 14/12).
-- Add a bit more top margin above the QR image block.
+2. Expected Arrivals card spacing
+   - The reference has more inner breathing room, especially at the bottom before the stacked blue stripes.
+   - Increase the Expected Arrivals card height/vertical padding a little.
+   - Add more space below the card before the stripes.
+   - Keep the white card background.
 
-**Assets**
-- Upload new avatar PNG → `src/assets/avatar.png.asset.json`, delete old `avatar.svg.asset.json`.
-- Upload cashback logo → `src/assets/cashback.png.asset.json`.
+3. Stacked bottom blue strips
+   - The current strip total height is 10px; in the reference the stacked blue band appears thicker.
+   - Increase the light-blue and dark-blue stacked strip heights slightly, keeping them as two solid horizontal layers, not a gradient.
 
-No logic / business changes. Pure presentational spacing + asset swaps.
+4. Scope
+   - Only update `src/routes/ticket.tsx`.
+   - No changes to booking logic, QR page, assets, or timer behavior.
