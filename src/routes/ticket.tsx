@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, BusFront, ChevronDown, Clock, Home, RefreshCw } from "lucide-react";
 import { formatDateTime, formatTimer, useTicket } from "@/lib/ticket-context";
 import { VerifiedBadge } from "@/components/Avatar";
-import avatarAsset from "@/assets/avatar.svg";
-import cashbackAsset from "@/assets/cashback.png";
-import janmargAsset from "@/assets/janmarg.png";
-import paytmAsset from "@/assets/paytm.png";
+import avatarAsset from "@/assets/avatar.svg.asset.json";
+import cashbackAsset from "@/assets/cashback.png.asset.json";
+import janmargAsset from "@/assets/janmarg.png.asset.json";
+import paytmAsset from "@/assets/paytm.png.asset.json";
+
 export const Route = createFileRoute("/ticket")({
   head: () => ({ meta: [{ title: "Ticket Booked — BRTS" }] }),
   component: TicketPage,
@@ -43,7 +44,7 @@ function TicketPage() {
       <div style={{ height: 24, background: "#fff" }} />
       <header style={{ background: "#fff", height: 56, padding: "0 16px", borderBottom: "1px solid #F0F0F0" }} className="flex items-center justify-between">
         <button onClick={() => nav({ to: "/book" })} aria-label="Back"><ArrowLeft size={24} color="#212121" /></button>
-        <img src={paytmAsset} alt="Paytm" style={{ height: 22 }} />
+        <img src={paytmAsset.url} alt="Paytm" style={{ height: 22 }} />
         <span style={{ fontSize: 14, fontWeight: 500, color: "#00BAF2" }}>Help</span>
       </header>
 
@@ -52,7 +53,7 @@ function TicketPage() {
         <div style={{ padding: "20px 16px 0" }}>
           <div className="flex justify-center mb-3">
             <div style={{ width: 64, height: 64, background: "#fff", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", padding: 8 }}>
-              <img src={janmargAsset} alt="Janmarg" style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+              <img src={janmargAsset.url} alt="Janmarg" style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
             </div>
           </div>
           <div className="flex justify-center items-center gap-1.5 mb-1" style={{ fontSize: 22, fontWeight: 700, color: "#212121" }}>
@@ -65,7 +66,7 @@ function TicketPage() {
 
           <div className="flex justify-center mb-1.5">
             <div style={{ background: "#fff", borderRadius: 999, padding: "4px 14px 4px 4px", display: "inline-flex", alignItems: "center", gap: 8, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
-              <img src={avatarAsset} alt="" style={{ width: 32, height: 32, objectFit: "contain" }} />
+              <img src={avatarAsset.url} alt="" style={{ width: 32, height: 32, objectFit: "contain" }} />
               <span style={{ fontSize: 16, fontWeight: 600, color: "#212121" }}>{ticket.adults}</span>
             </div>
           </div>
@@ -177,7 +178,7 @@ function TicketPage() {
           <span style={{ fontSize: 10, color: "#fff", fontWeight: 500 }}>Home</span>
         </button>
         <button className="flex flex-col items-center gap-1">
-          <img src={cashbackAsset} alt="" style={{ height: 22, width: "auto" }} />
+          <img src={cashbackAsset.url} alt="" style={{ height: 22, width: "auto" }} />
           <span style={{ fontSize: 10, color: "#fff", fontWeight: 500 }}>Cashback</span>
         </button>
         <button className="flex flex-col items-center gap-1">

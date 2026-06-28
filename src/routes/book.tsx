@@ -2,7 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowLeft, Minus, Plus } from "lucide-react";
 import { STATIONS, useTicket } from "@/lib/ticket-context";
-import paytmImage from "@/assets/paytm.png";
+import paytmAsset from "@/assets/paytm.png.asset.json";
 
 export const Route = createFileRoute("/book")({
   head: () => ({ meta: [{ title: "Book Ticket — BRTS" }] }),
@@ -77,7 +77,7 @@ function BookPage() {
     <div style={{ background: "#F5F5F5", minHeight: "100dvh" }}>
       <header style={{ background: "#fff", height: 56, padding: "0 16px", borderBottom: "1px solid #F0F0F0" }} className="flex items-center justify-between">
         <button onClick={() => nav({ to: "/" })} aria-label="Back"><ArrowLeft size={24} color="#212121" /></button>
-        <img src={paytmImage} alt="Paytm" style={{ height: 22 }} />
+        <img src={paytmAsset.url} alt="Paytm" style={{ height: 22 }} />
         <span style={{ fontSize: 14, fontWeight: 500, color: "#00BAF2" }}>Help</span>
       </header>
 
