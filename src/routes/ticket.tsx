@@ -71,9 +71,9 @@ function TicketPage() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-2 mb-1">
+          <div className="flex justify-center items-center gap-1.5 mb-1">
             <span style={{ fontSize: 36, fontWeight: 700, color: "#212121" }}>₹{ticket.amount}</span>
-              <VerifiedBadge size={30} />
+              <VerifiedBadge size={26} />
           </div>
           <p className="text-center mb-1" style={{ fontSize: 13, fontWeight: 600, color: "#212121", letterSpacing: 2, textTransform: "uppercase" }}>Ticket Booked Successfully</p>
           <p className="text-center" style={{ fontSize: 12, color: "#757575", marginTop: 16, marginBottom: 24 }}>{formatDateTime(ticket.issuedOn)}</p>
@@ -97,14 +97,14 @@ function TicketPage() {
           </div>
 
           {/* Expected Arrivals */}
-          <div style={{ background: "#FFFFFF", borderRadius: 14, padding: 14, marginBottom: 16, marginTop: 4 }}>
-            <div className="flex justify-between items-center mb-2.5">
+          <div style={{ background: "#FFFFFF", borderRadius: 14, padding: "16px 16px 18px", marginBottom: 24, marginTop: 4 }}>
+            <div className="flex justify-between items-center mb-3">
               <span style={{ fontSize: 14, fontWeight: 600, color: "#212121" }}>Expected Arrivals</span>
               <span className="flex items-center gap-1" style={{ fontSize: 11, color: "#757575" }}>
                 <RefreshCw size={11} color="#757575" /> Auto refresh in 2 mins
               </span>
             </div>
-            <div className="flex gap-3 mb-1">
+            <div className="flex gap-3 mb-2">
               {[{n:"4U-AL",a:1},{n:"9U-VM",a:1}].map((b) => (
                 <div key={b.n} className="flex items-center gap-2 flex-1">
                   <BusFront size={22} color="#1A237E" strokeWidth={1.8} />
@@ -115,13 +115,13 @@ function TicketPage() {
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: 13, color: "#00BAF2", fontWeight: 500, cursor: "pointer", marginTop: 6, borderBottom: "1.5px solid #00BAF2", display: "inline-block", paddingBottom: 1 }}>Check other buses ›</p>
+            <p style={{ fontSize: 13, color: "#00BAF2", fontWeight: 500, cursor: "pointer", marginTop: 8, borderBottom: "1.5px solid #00BAF2", display: "inline-block", paddingBottom: 1 }}>Check other buses ›</p>
           </div>
         </div>
 
         {/* Stacked bottom stripes */}
-        <div style={{ height: 4, background: "#7FCDEC" }} />
-        <div style={{ height: 6, background: "#1976D2" }} />
+        <div style={{ height: 6, background: "#7FCDEC" }} />
+        <div style={{ height: 8, background: "#1976D2" }} />
       </div>
 
       {/* Trip Details accordion */}
