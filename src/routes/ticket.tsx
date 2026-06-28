@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, BusFront, ChevronDown, Clock, Home, RefreshCw } 
 import { formatDateTime, formatTimer, useTicket } from "@/lib/ticket-context";
 import { VerifiedBadge } from "@/components/Avatar";
 import avatarAsset from "@/assets/avatar.svg.asset.json";
-import cashbackAsset from "@/assets/cashback.svg.asset.json";
+import cashbackAsset from "@/assets/cashback.png.asset.json";
 import janmargAsset from "@/assets/janmarg.png.asset.json";
 import paytmAsset from "@/assets/paytm.png.asset.json";
 
