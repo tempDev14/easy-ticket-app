@@ -22,6 +22,24 @@ function BookPage() {
   const [from, setFrom] = useState("Jhansi Ki Rani");
   const [to, setTo] = useState("Memnagar");
   const [adults, setAdults] = useState(1);
+  const [customStations, setCustomStations] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
+    try { return JSON.parse(localStorage.getItem("custom_stations") || "[]"); } catch { return []; }
+  });
+  const allStations = Array.from(new Set([...STATIONS, ...customStations]));
+  const handleSelect = (val: string, setter: (s: string) => void) => {
+    if (val === "__add__") {
+      const name = window.prompt("Enter custom location name")?.trim();
+      if (!name) return;
+      const next = Array.from(new Set([...customStations, name]));
+      setCustomStations(next);
+      try { localStorage.setItem("custom_stations", JSON.stringify(next)); } catch {}
+      setter(name);
+    } else {
+      setter(val);
+    }
+    setErr("");
+  };
   const [amount, setAmount] = useState<string>("10");
   const [hours, setHours] = useState<string>("3");
   const [minutes, setMinutes] = useState<string>("0");
@@ -66,13 +84,15 @@ function BookPage() {
       <form onSubmit={onSubmit} className="p-4">
         <div style={{ background: "#fff", borderRadius: 16, padding: 20, boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }} className="flex flex-col gap-5">
           <Field label="FROM">
-            <select value={from} onChange={(e) => { setFrom(e.target.value); setErr(""); }} style={selectStyle}>
-              {STATIONS.map((s) => <option key={s} value={s}>{s}</option>)}
+            <select value={from} onChange={(e) => handleSelect(e.target.value, setFrom)} style={selectStyle}>
+              {allStations.map((s) => <option key={s} value={s}>{s}</option>)}
+              <option value="__add__">+ Add custom location…</option>
             </select>
           </Field>
           <Field label="TO">
-            <select value={to} onChange={(e) => { setTo(e.target.value); setErr(""); }} style={selectStyle}>
-              {STATIONS.map((s) => <option key={s} value={s}>{s}</option>)}
+            <select value={to} onChange={(e) => handleSelect(e.target.value, setTo)} style={selectStyle}>
+              {allStations.map((s) => <option key={s} value={s}>{s}</option>)}
+              <option value="__add__">+ Add custom location…</option>
             </select>
           </Field>
           <Field label="ADULTS">
