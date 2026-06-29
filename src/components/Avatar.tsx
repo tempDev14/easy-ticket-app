@@ -34,10 +34,39 @@ export function BoyAvatar({ size = 36 }: { size?: number }) {
 
 export function VerifiedBadge({ size = 28 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="16" cy="16" r="12.8" fill="#16B857" />
-      <circle cx="11.5" cy="10.5" r="2.5" fill="#39D978" opacity="0.55" />
-      <path d="M10.2 16.4l3.8 3.8 7.8-8" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <svg width={size} height={size} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+      {/* Scalloped badge */}
+      <path
+        d="
+          M16 2.8
+          C17.2 2.8 17.8 4 18.8 4.4
+          C19.9 4.8 21.2 4.3 22.2 4.9
+          C23.2 5.5 23.4 6.9 24.2 7.7
+          C25.1 8.5 26.5 8.6 27.1 9.6
+          C27.7 10.6 27.2 11.9 27.6 13
+          C28 14.1 29.2 14.8 29.2 16
+          C29.2 17.2 28 17.9 27.6 19
+          C27.2 20.1 27.7 21.4 27.1 22.4
+          C26.5 23.4 25.1 23.5 24.2 24.3
+          C23.4 25.1 23.2 26.5 22.2 27.1
+          C21.2 27.7 19.9 27.2 18.8 27.6
+          C17.8 28 17.2 29.2 16 29.2
+          C14.8 29.2 14.2 28 13.2 27.6
+          C12.1 27.2 10.8 27.7 9.8 27.1
+          C8.8 26.5 8.6 25.1 7.8 24.3
+          C6.9 23.5 5.5 23.4 4.9 22.4
+          C4.3 21.4 4.8 20.1 4.4 19
+          C4 17.9 2.8 17.2 2.8 16
+          C2.8 14.8 4 14.1 4.4 13
+          C4.8 11.9 4.3 10.6 4.9 9.6
+          C5.5 8.6 6.9 8.5 7.8 7.7
+          C8.6 6.9 8.8 5.5 9.8 4.9
+          C10.8 4.3 12.1 4.8 13.2 4.4
+          C14.2 4 14.8 2.8 16 2.8Z"
+        fill="#18B84A"
+      />
+      {/* Checkmark */}
+      <path d="M10.6 16.3L14.2 20L21.5 12.6" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
