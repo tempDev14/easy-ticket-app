@@ -109,8 +109,8 @@ function QrPage() {
             ["Bus Service Type", `(${ticket.busType})`],
           ].map(([k, v], i, arr) => (
             <div key={k} className="flex justify-between" style={{ padding: "10px 0", borderBottom: i === arr.length - 1 ? "none" : "1px solid #F0F0F0" }}>
-              <span style={{ fontSize: 13, color: "#757575" }}>{k}</span>
-              <span style={{ fontSize: 13, color: "#212121", fontWeight: 500, textAlign: "right" }}>{v}</span>
+              <span style={{ fontSize: 14, color: "#757575" }}>{k}</span>
+              <span style={{ fontSize: 14, color: "#212121", fontWeight: 500, textAlign: "right" }}>{v}</span>
             </div>
           ))}
         </div>
