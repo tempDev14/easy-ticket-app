@@ -73,10 +73,10 @@ function TicketPage() {
 
           <div className="flex justify-center items-center gap-1.5 mb-1">
             <span style={{ fontSize: 36, fontWeight: 700, color: "#212121" }}>₹{ticket.amount}</span>
-              <VerifiedBadge size={26} />
+              <VerifiedBadge size={24} />
           </div>
           <p className="text-center mb-1" style={{ fontSize: 13, fontWeight: 600, color: "#212121", letterSpacing: 2, textTransform: "uppercase" }}>Ticket Booked Successfully</p>
-          <p className="text-center" style={{ fontSize: 12, color: "#757575", marginTop: 16, marginBottom: 24 }}>{formatDateTime(ticket.issuedOn)}</p>
+          <p className="text-center" style={{ fontSize: 12, color: "#757575", marginTop: 22, marginBottom: 30 }}>{formatDateTime(ticket.issuedOn)}</p>
 
           {/* Inner white card */}
           <div style={{ background: "#fff", borderRadius: 16, padding: 16, marginBottom: 24 }}>

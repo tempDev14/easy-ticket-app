@@ -35,11 +35,9 @@ export function BoyAvatar({ size = 36 }: { size?: number }) {
 export function VerifiedBadge({ size = 28 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M16 2l2.6 2.4 3.5-.6 1.4 3.3 3.3 1.4-.6 3.5L28.6 14.6 27 17.2l1 3.4-3 1.9-.9 3.4-3.5.2-2.1 2.8L16 27.4l-2.5 1.5-2.1-2.8-3.5-.2-.9-3.4-3-1.9 1-3.4-1.6-2.6 2.4-2.6-.6-3.5 3.3-1.4L9.9 3.8l3.5.6L16 2z"
-        fill="#4CAF50"
-      />
-      <path d="M10.5 16.5l3.8 3.8 7.5-7.5" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <circle cx="16" cy="16" r="12.8" fill="#16B857" />
+      <circle cx="11.5" cy="10.5" r="2.5" fill="#39D978" opacity="0.55" />
+      <path d="M10.2 16.4l3.8 3.8 7.8-8" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
     </svg>
   );
 }
