@@ -6,7 +6,7 @@ import avatarAsset from "@/assets/avatar.svg.asset.json";
 import cashbackAsset from "@/assets/cashback.png.asset.json";
 import janmargAsset from "@/assets/janmarg.png.asset.json";
 import paytmAsset from "@/assets/paytm.png.asset.json";
-import verifiedAsset from "@/assets/verified.svg.asset.json";
+import { VerifiedBadge } from "@/components/Avatar";
 
 export const Route = createFileRoute("/ticket")({
   head: () => ({ meta: [{ title: "Ticket Booked — BRTS" }] }),
@@ -73,7 +73,7 @@ function TicketPage() {
 
           <div className="flex justify-center items-center gap-1.5 mb-1">
             <span style={{ fontSize: 36, fontWeight: 700, color: "#212121" }}>₹{ticket.amount}</span>
-              <img src={verifiedAsset.url} alt="verified" style={{ width: 32, height: 32, objectFit: "contain" }} />
+            <VerifiedBadge size={32} />
           </div>
           <p className="text-center mb-1" style={{ fontSize: 13, fontWeight: 600, color: "#212121", letterSpacing: 2, textTransform: "uppercase" }}>Ticket Booked Successfully</p>
           <p className="text-center" style={{ fontSize: 12, color: "#757575", marginTop: 22, marginBottom: 30 }}>{formatDateTime(ticket.issuedOn)}</p>
