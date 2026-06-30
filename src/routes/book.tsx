@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowLeft, Minus, Plus } from "lucide-react";
-import { STATIONS, useTicket } from "@/lib/ticket-context";
+import { STATIONS, useTicket, formatTimer } from "@/lib/ticket-context";
 import paytmAsset from "@/assets/paytm.png.asset.json";
 
 export const Route = createFileRoute("/book")({
@@ -18,7 +18,7 @@ function randDigits(n: number) {
 
 function BookPage() {
   const nav = useNavigate();
-  const { username, setTicket } = useTicket();
+  const { username, setTicket, ticket, secondsLeft } = useTicket();
   const [from, setFrom] = useState("Jhansi Ki Rani");
   const [to, setTo] = useState("Memnagar");
   const [adults, setAdults] = useState(1);
@@ -82,6 +82,26 @@ function BookPage() {
       </header>
 
       <form onSubmit={onSubmit} className="p-4">
+        {ticket && secondsLeft > 0 && (
+          <button
+            type="button"
+            onClick={() => nav({ to: "/ticket" })}
+            style={{ width: "100%", background: "#fff", borderRadius: 16, padding: 16, boxShadow: "0 2px 12px rgba(0,0,0,0.06)", border: "1px solid #E0F4FB", marginBottom: 16, textAlign: "left", display: "block" }}
+          >
+            <div className="flex items-center justify-between" style={{ marginBottom: 8 }}>
+              <span style={{ fontSize: 11, fontWeight: 600, color: "#29B5E8", letterSpacing: 0.5, textTransform: "uppercase" }}>Active Ticket</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: "#29B5E8" }}>View →</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <div style={{ fontSize: 15, fontWeight: 600, color: "#212121" }}>
+                {ticket.from} <span style={{ color: "#9E9E9E", fontWeight: 400 }}>→</span> {ticket.to}
+              </div>
+              {(() => { const t = formatTimer(secondsLeft); return (
+                <div style={{ fontSize: 14, fontWeight: 700, color: "#000" }}>{t.h}:{t.m}:{t.s}</div>
+              ); })()}
+            </div>
+          </button>
+        )}
         <div style={{ background: "#fff", borderRadius: 16, padding: 20, boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }} className="flex flex-col gap-5">
           <Field label="FROM">
             <select value={from} onChange={(e) => handleSelect(e.target.value, setFrom)} style={selectStyle}>

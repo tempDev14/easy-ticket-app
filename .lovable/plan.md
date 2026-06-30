@@ -1,20 +1,18 @@
-Yes — based on the reference images, the current ticket page needs these adjustments:
+## Changes
 
-1. Verified badge
-   - Current badge is 30px, which looks too large compared with the reference.
-   - Reduce it to about 26px so it sits closer to the ₹10 text size without overpowering it.
-   - Tighten the gap between ₹ amount and badge slightly.
+### 1. New transparent verified badge
+- Replace `VerifiedBadge` in `src/components/Avatar.tsx` with the new scalloped SVG path the user provided (single green path, fill `rgb(3,162,3)`, viewBox `0 0 1024 1024`, transparent background — no white circle behind it so it blends on any bg).
+- Keep size prop; default size unchanged so it still matches ₹ glyph on the ticket page.
 
-2. Expected Arrivals card spacing
-   - The reference has more inner breathing room, especially at the bottom before the stacked blue stripes.
-   - Increase the Expected Arrivals card height/vertical padding a little.
-   - Add more space below the card before the stripes.
-   - Keep the white card background.
+### 2. Active ticket access from booking page
+- In `src/routes/book.tsx`: read `ticket` from `useTicket()`. If a non-expired ticket exists, render an "Active Ticket" card at the top of the form area (above the form card) showing:
+  - From → To
+  - Remaining time (live, using `secondsLeft` + `formatTimer`)
+  - A "View Ticket" button → `nav({ to: "/ticket" })`
+- Card styling matches existing white rounded card aesthetic (border-radius 16, subtle shadow, teal accent for the button).
+- If ticket is expired or absent, card is not rendered.
+- No changes to ticket creation, QR page, or timer logic.
 
-3. Stacked bottom blue strips
-   - The current strip total height is 10px; in the reference the stacked blue band appears thicker.
-   - Increase the light-blue and dark-blue stacked strip heights slightly, keeping them as two solid horizontal layers, not a gradient.
-
-4. Scope
-   - Only update `src/routes/ticket.tsx`.
-   - No changes to booking logic, QR page, assets, or timer behavior.
+### Files touched
+- `src/components/Avatar.tsx` — swap VerifiedBadge SVG.
+- `src/routes/book.tsx` — add active-ticket card + navigation.
