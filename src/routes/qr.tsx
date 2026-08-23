@@ -30,6 +30,8 @@ function QrPage() {
   const nav = useNavigate();
   const { ticket, secondsLeft, username } = useTicket();
   const [open, setOpen] = useState(true);
+  const [zoom, setZoom] = useState(false);
+  const qrValue = ticket ? `TICKET:${ticket.orderId}:${ticket.from}:${ticket.to}` : "";
 
   useEffect(() => {
     if (!username) { nav({ to: "/" }); return; }
