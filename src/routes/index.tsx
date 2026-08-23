@@ -39,7 +39,7 @@ function LoginPage() {
 
   return (
     <div className="min-h-[100dvh] flex flex-col items-center justify-center px-6 bg-white">
-      <div className="paytm-logo mb-2">paytm</div>
+      <div className="mb-2" style={{ fontSize: 34, fontWeight: 800, letterSpacing: 2, color: "#0B57D0" }}>HRIDAYAM</div>
       <p style={{ fontSize: 13, color: "#757575" }} className="mb-8">BRTS Bus Ticket</p>
       <form
         onSubmit={onSubmit}
@@ -62,7 +62,7 @@ function LoginPage() {
         >
           Login
         </button>
-        <p className="mt-4 text-center" style={{ fontSize: 12, color: "#9E9E9E" }}>Try: dev@hridayam</p>
+        
       </form>
     </div>
   );

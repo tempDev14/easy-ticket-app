@@ -145,7 +145,7 @@ function BookPage() {
                 <div className="flex items-center gap-1.5" style={{ paddingBottom: 4 }}>
                   <Clock size={14} color={AMBER} />
                   <span style={{ fontSize: 13, color: "#4B5563" }}>Ticket will expire at</span>
-                  <span style={{ fontSize: 13, color: "#1A1A1A", fontWeight: 700 }}>{formatDateTime(active.validUntil).replace(",", "").replace(/^(\d+ \w+ \d+), /, "")}</span>
+                  <span style={{ fontSize: 13, color: "#1A1A1A", fontWeight: 700 }}>{expiryLabel(active.validUntil)}</span>
                 </div>
               </div>
               <div style={{ height: 4, background: AMBER }} />
@@ -301,6 +301,11 @@ function BookPage() {
 
 function Dot() {
   return <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#1A1A1A", display: "inline-block", marginTop: 5, flexShrink: 0 }} />;
+}
+
+function expiryLabel(iso: string) {
+  const [date, time] = formatDateTime(iso).split(", ");
+  return `${time}, ${date}`;
 }
 
 const fieldStyle: React.CSSProperties = {
