@@ -30,6 +30,8 @@ function QrPage() {
   const nav = useNavigate();
   const { ticket, secondsLeft, username } = useTicket();
   const [open, setOpen] = useState(true);
+  const [zoom, setZoom] = useState(false);
+  const qrValue = ticket ? `TICKET:${ticket.orderId}:${ticket.from}:${ticket.to}` : "";
 
   useEffect(() => {
     if (!username) { nav({ to: "/" }); return; }
@@ -70,16 +72,35 @@ function QrPage() {
       <p className="text-center" style={{ fontSize: 13, fontWeight: 500, color: "#212121", padding: "22px 16px 20px" }}>Scan this QR at Entry & Exit Points</p>
 
       <div className="flex justify-center" style={{ margin: "12px auto 8px" }}>
-        <div style={{ padding: 8, background: "#fff" }}>
+        <button onClick={() => setZoom(true)} style={{ padding: 8, background: "#fff", border: "none" }} className="active:opacity-80 transition-opacity" aria-label="Expand QR">
           <QRCodeSVG
-            value={`TICKET:${ticket.orderId}:${ticket.from}:${ticket.to}`}
+            value={qrValue}
             fgColor="#000000"
             bgColor="#FFFFFF"
             level="M"
             size={300}
           />
-        </div>
+        </button>
       </div>
+
+      {zoom && (
+        <div
+          onClick={() => setZoom(false)}
+          style={{
+            position: "fixed", inset: 0, background: "#fff", zIndex: 300,
+            overflowY: "auto", padding: 10,
+            animation: "qr-zoom-in 300ms ease-out",
+          }}
+        >
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
+            {Array.from({ length: 24 }).map((_, i) => (
+              <div key={i} style={{ width: "100%", aspectRatio: "1 / 1" }}>
+                <QRCodeSVG value={qrValue} fgColor="#000000" bgColor="#FFFFFF" level="M" style={{ width: "100%", height: "100%" }} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div style={{ padding: "16px 16px 20px" }}>
         <p className="text-center" style={{ fontSize: 13, color: "#9E9E9E", marginBottom: 6 }}>Your ticket is valid for</p>
