@@ -126,14 +126,14 @@ function BookPage() {
                     <div className="flex items-start gap-2.5">
                       <Dot />
                       <div>
-                        <p style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A" }}>{active.from}</p>
-                        <p style={{ fontSize: 11, color: "#9CA3AF" }}>Via BRTS</p>
+                        <p style={{ fontSize: 15, fontWeight: 600, color: "#1A1A1A" }}>{active.from}</p>
+                        <p style={{ fontSize: 11, color: "#9CA3AF", marginTop: 1 }}>Via BRTS</p>
                       </div>
                     </div>
-                    <div style={{ height: 20, marginLeft: 3.5, borderLeft: "1.5px dotted #C7CBD1" }} />
+                    <div style={{ height: 18, marginLeft: 6.5, borderLeft: "1.5px solid #C7CBD1" }} />
                     <div className="flex items-start gap-2.5">
                       <Dot />
-                      <p style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A" }}>{active.to}</p>
+                      <p style={{ fontSize: 15, fontWeight: 600, color: "#1A1A1A" }}>{active.to}</p>
                     </div>
                   </div>
                   <button onClick={() => nav({ to: "/qr" })} className="flex flex-col items-center active:opacity-70">
