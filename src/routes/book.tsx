@@ -181,7 +181,7 @@ function BookPage() {
         <p style={{ fontSize: 16, fontWeight: 700, color: "#1A1A1A", marginBottom: 14 }}>Buy New Ticket</p>
         <form onSubmit={onSubmit} className="flex flex-col gap-3.5" style={{ background: "#fff", border: "1px solid #EDEEF0", borderRadius: 14, padding: 16, boxShadow: "0 1px 3px rgba(0,0,0,0.03)" }}>
           <div className="relative">
-            <button type="button" onClick={() => setPicker("from")} style={fieldStyle} className="active:bg-black/5 text-left">
+            <button type="button" onClick={() => setPicker("from")} style={{ ...fieldStyle, paddingRight: 104 }} className="active:bg-black/5 text-left">
               <span style={{ color: from ? "#1A1A1A" : "#9CA3AF", fontSize: 16 }}>{from || "From"}</span>
             </button>
             <div className="flex flex-col items-center" style={{ position: "absolute", right: 12, top: 10, pointerEvents: "none" }}>
@@ -301,7 +301,11 @@ function BookPage() {
 }
 
 function Dot() {
-  return <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#1A1A1A", display: "inline-block", marginTop: 5, flexShrink: 0 }} />;
+  return (
+    <span style={{ width: 14, height: 14, borderRadius: "50%", border: "2px solid #1A1A1A", display: "inline-flex", alignItems: "center", justifyContent: "center", marginTop: 3, flexShrink: 0 }}>
+      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#1A1A1A" }} />
+    </span>
+  );
 }
 
 function expiryLabel(iso: string) {
@@ -310,7 +314,7 @@ function expiryLabel(iso: string) {
 }
 
 const fieldStyle: React.CSSProperties = {
-  width: "100%", border: "1px solid #E5E7EB", borderRadius: 12, padding: "15px 16px",
+  width: "100%", border: "1px solid #D8DBDF", borderRadius: 10, padding: "17px 16px",
   fontSize: 15, color: "#1A1A1A", background: "#fff", outline: "none",
 };
 const dropdownStyle: React.CSSProperties = {
