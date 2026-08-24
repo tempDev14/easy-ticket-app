@@ -164,7 +164,7 @@ function BookPage() {
                 <button
                   key={i}
                   onClick={() => { setFrom(r.from); setTo(r.to); setAdults(r.adults); }}
-                  style={{ textAlign: "left", background: "#fff", border: "1px solid #E5E7EB", borderRadius: 10, padding: 11 }}
+                  style={{ textAlign: "left", background: "#fff", border: "1px solid #E5E7EB", borderRadius: 10, padding: 13, flexShrink: 0 }}
                   className="active:bg-black/5"
                 >
                   <p style={{ fontSize: 11, color: "#6B7280", marginBottom: 3 }}>BRTS · {r.adults} Adult Ticket</p>
