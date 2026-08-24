@@ -87,20 +87,21 @@ function QrPage() {
         <div
           onClick={() => setZoom(false)}
           style={{
-            position: "fixed", inset: 0, background: "#fff", zIndex: 300,
-            overflowY: "auto", padding: 10,
-            animation: "qr-zoom-in 300ms ease-out",
+            position: "fixed", inset: 0, background: "#FFFFFF", zIndex: 300,
+            overflowY: "auto", padding: "4px 4px 8px",
+            animation: "qr-zoom-in 260ms ease-out",
           }}
         >
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
             {Array.from({ length: 24 }).map((_, i) => (
               <div key={i} style={{ width: "100%", aspectRatio: "1 / 1" }}>
-                <QRCodeSVG value={qrValue} fgColor="#000000" bgColor="#FFFFFF" level="M" style={{ width: "100%", height: "100%" }} />
+                <QRCodeSVG value={qrValue} fgColor="#000000" bgColor="#FFFFFF" level="M" style={{ width: "100%", height: "100%", display: "block" }} />
               </div>
             ))}
           </div>
         </div>
       )}
+
 
       <div style={{ padding: "16px 16px 20px" }}>
         <p className="text-center" style={{ fontSize: 13, color: "#9E9E9E", marginBottom: 6 }}>Your ticket is valid for</p>
