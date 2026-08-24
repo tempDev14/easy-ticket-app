@@ -102,11 +102,11 @@ function BookPage() {
   return (
     <div style={{ background: "#fff", minHeight: "100dvh" }}>
       {/* Header */}
-      <header style={{ background: "#fff", padding: "14px 16px", borderBottom: "1px solid #F0F0F0" }} className="flex items-start gap-3">
+      <header style={{ background: "#fff", padding: "20px 20px 18px" }} className="flex items-start gap-4">
         <button onClick={() => nav({ to: "/" })} aria-label="Back" style={{ marginTop: 2 }}><ArrowLeft size={22} color="#212121" /></button>
         <div className="flex-1">
           <p style={{ fontSize: 17.5, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.2 }}>Buy City Bus Ticket</p>
-          <button className="flex items-center gap-0.5" style={{ marginTop: 2 }}>
+          <button className="flex items-center gap-0.5" style={{ marginTop: 4 }}>
             <span style={{ fontSize: 13, color: "#616161" }}>Ahmedabad</span>
             <ChevronDown size={14} color="#616161" />
           </button>
@@ -114,7 +114,7 @@ function BookPage() {
         <span style={{ fontSize: 14, fontWeight: 500, color: BLUE, marginTop: 2 }}>Help</span>
       </header>
 
-      <div style={{ padding: "16px 16px 40px" }}>
+      <div style={{ padding: "8px 20px 40px" }}>
         {active && (
           <>
             <p style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", marginBottom: 12 }}>Your Active Ticket</p>
@@ -126,14 +126,14 @@ function BookPage() {
                     <div className="flex items-start gap-2.5">
                       <Dot />
                       <div>
-                        <p style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A" }}>{active.from}</p>
-                        <p style={{ fontSize: 11, color: "#9CA3AF" }}>Via BRTS</p>
+                        <p style={{ fontSize: 15, fontWeight: 600, color: "#1A1A1A" }}>{active.from}</p>
+                        <p style={{ fontSize: 11, color: "#9CA3AF", marginTop: 1 }}>Via BRTS</p>
                       </div>
                     </div>
-                    <div style={{ height: 20, marginLeft: 3.5, borderLeft: "1.5px dotted #C7CBD1" }} />
+                    <div style={{ height: 18, marginLeft: 6.5, borderLeft: "1.5px solid #C7CBD1" }} />
                     <div className="flex items-start gap-2.5">
                       <Dot />
-                      <p style={{ fontSize: 14, fontWeight: 600, color: "#1A1A1A" }}>{active.to}</p>
+                      <p style={{ fontSize: 15, fontWeight: 600, color: "#1A1A1A" }}>{active.to}</p>
                     </div>
                   </div>
                   <button onClick={() => nav({ to: "/qr" })} className="flex flex-col items-center active:opacity-70">
@@ -159,12 +159,12 @@ function BookPage() {
               <p style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A" }}>Recent Orders</p>
               <span style={{ fontSize: 13, color: BLUE }}>View All</span>
             </div>
-            <div className="flex flex-col gap-2" style={{ marginBottom: 22 }}>
+            <div className="flex flex-col gap-2" style={{ marginBottom: 22, maxHeight: 196, overflowY: recent.length > 2 ? "auto" : "visible" }}>
               {recent.map((r, i) => (
                 <button
                   key={i}
                   onClick={() => { setFrom(r.from); setTo(r.to); setAdults(r.adults); }}
-                  style={{ textAlign: "left", background: "#fff", border: "1px solid #E5E7EB", borderRadius: 10, padding: 11 }}
+                  style={{ textAlign: "left", background: "#fff", border: "1px solid #E5E7EB", borderRadius: 10, padding: 13, flexShrink: 0 }}
                   className="active:bg-black/5"
                 >
                   <p style={{ fontSize: 11, color: "#6B7280", marginBottom: 3 }}>BRTS · {r.adults} Adult Ticket</p>
@@ -178,26 +178,27 @@ function BookPage() {
           </>
         )}
 
-        <p style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", marginBottom: 12 }}>Buy New Ticket</p>
-        <form onSubmit={onSubmit} className="flex flex-col gap-3">
+        <p style={{ fontSize: 16, fontWeight: 700, color: "#1A1A1A", marginBottom: 14 }}>Buy New Ticket</p>
+        <form onSubmit={onSubmit} className="flex flex-col gap-3.5" style={{ background: "#fff", border: "1px solid #EDEEF0", borderRadius: 14, padding: 16, boxShadow: "0 1px 3px rgba(0,0,0,0.03)" }}>
           <div className="relative">
-            <button type="button" onClick={() => setPicker("from")} style={fieldStyle} className="active:bg-black/5 text-left">
-              <span style={{ color: from ? "#1A1A1A" : "#9CA3AF", fontSize: 15 }}>{from || "From"}</span>
+            <button type="button" onClick={() => setPicker("from")} style={{ ...fieldStyle, paddingRight: 104 }} className="active:bg-black/5 text-left">
+              <span style={{ color: from ? "#1A1A1A" : "#9CA3AF", fontSize: 16 }}>{from || "From"}</span>
             </button>
-            <div className="flex flex-col items-center" style={{ position: "absolute", right: 12, top: 8 }}>
-              <QrCode size={19} color={BLUE} />
-              <span style={{ fontSize: 10.5, color: BLUE, marginTop: 2 }}>Scan at bus stop</span>
+            <div className="flex flex-col items-center" style={{ position: "absolute", right: 12, top: 10, pointerEvents: "none" }}>
+              <QrCode size={20} color={BLUE} strokeWidth={2.2} />
+              <span style={{ fontSize: 10, color: BLUE, marginTop: 3, whiteSpace: "nowrap" }}>Scan at bus stop</span>
             </div>
           </div>
 
           <button type="button" onClick={() => setPicker("to")} style={fieldStyle} className="active:bg-black/5 text-left">
-            <span style={{ color: to ? "#1A1A1A" : "#9CA3AF", fontSize: 15 }}>{to || "To"}</span>
+            <span style={{ color: to ? "#1A1A1A" : "#9CA3AF", fontSize: 16 }}>{to || "To"}</span>
           </button>
 
           <div className="relative">
+            <span style={{ position: "absolute", top: -8, left: 12, background: "#fff", padding: "0 6px", fontSize: 12, color: "#6B7280", zIndex: 1 }}>Passenger</span>
             <button type="button" onClick={() => setPassOpen((v) => !v)} style={fieldStyle} className="active:bg-black/5 text-left flex items-center justify-between">
-              <span style={{ color: "#1A1A1A", fontSize: 15 }}>{adults} Adult</span>
-              <ChevronDown size={18} color="#6B7280" style={{ transform: passOpen ? "rotate(180deg)" : "none", transition: "transform .2s" }} />
+              <span style={{ color: "#1A1A1A", fontSize: 16 }}>{adults} Adult</span>
+              <ChevronDown size={20} color="#6B7280" style={{ transform: passOpen ? "rotate(180deg)" : "none", transition: "transform .2s" }} />
             </button>
             {passOpen && (
               <div style={dropdownStyle}>
@@ -300,7 +301,11 @@ function BookPage() {
 }
 
 function Dot() {
-  return <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#1A1A1A", display: "inline-block", marginTop: 5, flexShrink: 0 }} />;
+  return (
+    <span style={{ width: 14, height: 14, borderRadius: "50%", border: "2px solid #1A1A1A", display: "inline-flex", alignItems: "center", justifyContent: "center", marginTop: 3, flexShrink: 0 }}>
+      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#1A1A1A" }} />
+    </span>
+  );
 }
 
 function expiryLabel(iso: string) {
@@ -309,7 +314,7 @@ function expiryLabel(iso: string) {
 }
 
 const fieldStyle: React.CSSProperties = {
-  width: "100%", border: "1px solid #E5E7EB", borderRadius: 12, padding: "15px 16px",
+  width: "100%", border: "1px solid #D8DBDF", borderRadius: 10, padding: "17px 16px",
   fontSize: 15, color: "#1A1A1A", background: "#fff", outline: "none",
 };
 const dropdownStyle: React.CSSProperties = {
