@@ -102,11 +102,11 @@ function BookPage() {
   return (
     <div style={{ background: "#fff", minHeight: "100dvh" }}>
       {/* Header */}
-      <header style={{ background: "#fff", padding: "14px 16px", borderBottom: "1px solid #F0F0F0" }} className="flex items-start gap-3">
+      <header style={{ background: "#fff", padding: "20px 20px 18px" }} className="flex items-start gap-4">
         <button onClick={() => nav({ to: "/" })} aria-label="Back" style={{ marginTop: 2 }}><ArrowLeft size={22} color="#212121" /></button>
         <div className="flex-1">
           <p style={{ fontSize: 17.5, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.2 }}>Buy City Bus Ticket</p>
-          <button className="flex items-center gap-0.5" style={{ marginTop: 2 }}>
+          <button className="flex items-center gap-0.5" style={{ marginTop: 4 }}>
             <span style={{ fontSize: 13, color: "#616161" }}>Ahmedabad</span>
             <ChevronDown size={14} color="#616161" />
           </button>
@@ -114,7 +114,7 @@ function BookPage() {
         <span style={{ fontSize: 14, fontWeight: 500, color: BLUE, marginTop: 2 }}>Help</span>
       </header>
 
-      <div style={{ padding: "16px 16px 40px" }}>
+      <div style={{ padding: "8px 20px 40px" }}>
         {active && (
           <>
             <p style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", marginBottom: 12 }}>Your Active Ticket</p>
