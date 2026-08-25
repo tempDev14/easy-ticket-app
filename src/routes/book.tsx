@@ -174,7 +174,7 @@ function BookPage() {
               <p style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A" }}>Recent Orders</p>
               <span style={{ fontSize: 13, color: BLUE }}>View All</span>
             </div>
-            <div className="flex flex-col gap-2" style={{ marginBottom: 22, maxHeight: 196, overflowY: recent.length > 2 ? "auto" : "visible" }}>
+            <div className="flex flex-col gap-2 no-scrollbar" style={{ marginBottom: 22, maxHeight: 196, overflowY: recent.length > 2 ? "auto" : "visible" }}>
               {recent.map((r, i) => (
                 <button
                   key={i}
