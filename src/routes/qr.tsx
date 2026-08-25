@@ -94,15 +94,15 @@ function QrPage() {
           }}
         >
           <div
-            onClick={(e) => e.stopPropagation()}
+            onClick={() => setZoom(false)}
             style={{
               width: "92%", height: "88%", background: "#FFFFFF", borderRadius: 14,
-              overflowY: "auto", padding: 12, boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
+              overflowY: "auto", padding: 8, boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
             }}
           >
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", columnGap: 14, rowGap: 14 }}>
-              {Array.from({ length: 24 }).map((_, i) => (
-                <div key={i} style={{ width: "100%", aspectRatio: "1 / 1", background: "#FFFFFF", padding: 6, boxSizing: "border-box" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", columnGap: 4, rowGap: 14 }}>
+              {Array.from({ length: 18 }).map((_, i) => (
+                <div key={i} style={{ width: "100%", aspectRatio: "1 / 1", background: "#FFFFFF", padding: 2, boxSizing: "border-box" }}>
                   <QRCodeSVG value={qrValue} fgColor="#000000" bgColor="#FFFFFF" level="M" style={{ width: "100%", height: "100%", display: "block" }} />
                 </div>
               ))}
@@ -110,6 +110,7 @@ function QrPage() {
           </div>
         </div>
       )}
+
 
 
 
