@@ -310,9 +310,10 @@ function BookPage() {
 
 function Dot() {
   return (
-    <span style={{ width: 14, height: 14, borderRadius: "50%", border: "2px solid #1A1A1A", display: "inline-flex", alignItems: "center", justifyContent: "center", marginTop: 3, flexShrink: 0 }}>
-      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#1A1A1A" }} />
+    <span style={{ width: 15, height: 15, borderRadius: "50%", background: "#E7E9EC", display: "inline-flex", alignItems: "center", justifyContent: "center", marginTop: 5, flexShrink: 0 }}>
+      <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2B2F36" }} />
     </span>
+
   );
 }
 
