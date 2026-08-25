@@ -118,44 +118,51 @@ function BookPage() {
         {active && (
           <>
             <p style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", marginBottom: 12 }}>Your Active Ticket</p>
-            <div style={{ position: "relative", background: "#fff", border: "1px solid #E5E7EB", borderRadius: 16, marginBottom: 22, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
-              <div style={{ padding: "16px 16px 0" }}>
-                <p style={{ fontSize: 12.5, color: "#6B7280", marginBottom: 14 }}>BRTS · {active.adults} Adult Ticket</p>
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={() => nav({ to: "/qr" })}
+              onKeyDown={(e) => { if (e.key === "Enter") nav({ to: "/qr" }); }}
+              className="active:opacity-90 cursor-pointer"
+              style={{ position: "relative", background: "#fff", border: "1px solid #E8EAED", borderRadius: 14, marginBottom: 22, boxShadow: "0 1px 6px rgba(0,0,0,0.07)" }}
+            >
+              <div style={{ padding: "14px 16px 0" }}>
+                <p style={{ fontSize: 12.5, color: "#6B7280", marginBottom: 10 }}>BRTS · {active.adults} Adult Ticket</p>
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <div className="flex items-start gap-3">
                       <Dot />
                       <div>
                         <p style={{ fontSize: 19, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.15 }}>{active.from}</p>
-                        <p style={{ fontSize: 12, color: "#B0B4BA", marginTop: 3 }}>Via BRTS</p>
+                        <p style={{ fontSize: 12, color: "#B0B4BA", marginTop: 1 }}>Via BRTS</p>
                       </div>
                     </div>
-                    <div style={{ height: 34, marginLeft: 6.5, borderLeft: "1.5px solid #C7CBD1" }} />
+                    <div style={{ height: 20, marginLeft: 7, borderLeft: "1.5px solid #C7CBD1" }} />
                     <div className="flex items-start gap-3">
                       <Dot />
                       <p style={{ fontSize: 19, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.15 }}>{active.to}</p>
                     </div>
                   </div>
-                  <button onClick={() => nav({ to: "/qr" })} className="flex flex-col items-center active:opacity-70" style={{ marginTop: 4 }}>
-                    <QRCodeSVG value={`TICKET:${active.orderId}:${active.from}:${active.to}`} size={64} level="M" fgColor="#000" bgColor="#fff" />
-                    <span style={{ fontSize: 12.5, color: BLUE, marginTop: 8 }}>Tap to View</span>
-                  </button>
+                  <div className="flex flex-col items-center" style={{ marginTop: 2 }}>
+                    <QRCodeSVG value={`TICKET:${active.orderId}:${active.from}:${active.to}`} size={54} level="M" fgColor="#000" bgColor="#fff" />
+                    <span style={{ fontSize: 12.5, color: "#29B5E8", marginTop: 8 }}>Tap to View</span>
+                  </div>
                 </div>
               </div>
 
               {/* Perforation with side notches */}
-              <div style={{ position: "relative", height: 22, marginTop: 14 }}>
-                <div style={{ position: "absolute", left: -9, top: 2, width: 18, height: 18, borderRadius: "50%", background: "#F3F4F6", border: "1px solid #E5E7EB", clipPath: "inset(0 0 0 50%)" }} />
-                <div style={{ position: "absolute", right: -9, top: 2, width: 18, height: 18, borderRadius: "50%", background: "#F3F4F6", border: "1px solid #E5E7EB", clipPath: "inset(0 50% 0 0)" }} />
-                <div style={{ position: "absolute", left: 14, right: 14, top: 10, borderTop: "1px dashed #E1E3E7" }} />
+              <div style={{ position: "relative", height: 20, marginTop: 12 }}>
+                <div style={{ position: "absolute", left: -8, top: 2, width: 16, height: 16, borderRadius: "50%", background: "#fff", border: "1px solid #E8EAED", clipPath: "inset(0 0 0 50%)" }} />
+                <div style={{ position: "absolute", right: -8, top: 2, width: 16, height: 16, borderRadius: "50%", background: "#fff", border: "1px solid #E8EAED", clipPath: "inset(0 50% 0 0)" }} />
+                <div style={{ position: "absolute", left: 12, right: 12, top: 9, borderTop: "1px solid #EFF1F3" }} />
               </div>
 
-              <div className="flex items-center gap-1.5" style={{ padding: "0 16px 14px" }}>
+              <div className="flex items-center gap-1.5" style={{ padding: "0 16px 16px" }}>
                 <Clock size={15} color={AMBER} />
                 <span style={{ fontSize: 13, color: "#4B5563" }}>Ticket will expire at</span>
                 <span style={{ fontSize: 13, color: "#1A1A1A", fontWeight: 700 }}>{expiryLabel(active.validUntil)}</span>
               </div>
-              <div style={{ height: 4, background: AMBER, borderBottomLeftRadius: 16, borderBottomRightRadius: 16 }} />
+              <div style={{ height: 4, background: AMBER, borderBottomLeftRadius: 14, borderBottomRightRadius: 14 }} />
             </div>
           </>
         )}
