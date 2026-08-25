@@ -102,7 +102,7 @@ function BookPage() {
   return (
     <div style={{ background: "#fff", minHeight: "100dvh" }}>
       {/* Header */}
-      <header style={{ background: "#fff", padding: "20px 20px 18px" }} className="flex items-start gap-4">
+      <header style={{ background: "#fff", padding: "28px 20px 24px" }} className="flex items-start gap-4">
         <button onClick={() => nav({ to: "/" })} aria-label="Back" style={{ marginTop: 2 }}><ArrowLeft size={22} color="#212121" /></button>
         <div className="flex-1">
           <p style={{ fontSize: 17.5, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.2 }}>Buy City Bus Ticket</p>
@@ -114,44 +114,52 @@ function BookPage() {
         <span style={{ fontSize: 14, fontWeight: 500, color: BLUE, marginTop: 2 }}>Help</span>
       </header>
 
-      <div style={{ padding: "8px 20px 40px" }}>
+      <div style={{ padding: "14px 20px 40px" }}>
         {active && (
           <>
             <p style={{ fontSize: 15, fontWeight: 700, color: "#1A1A1A", marginBottom: 12 }}>Your Active Ticket</p>
-            <div style={{ background: "#fff", border: "1px solid #E5E7EB", borderRadius: 14, overflow: "hidden", marginBottom: 22, boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
-              <div style={{ padding: 16 }}>
-                <p style={{ fontSize: 12, color: "#6B7280", marginBottom: 12 }}>BRTS · {active.adults} Adult Ticket</p>
+            <div style={{ position: "relative", background: "#fff", border: "1px solid #E5E7EB", borderRadius: 16, marginBottom: 22, boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
+              <div style={{ padding: "16px 16px 0" }}>
+                <p style={{ fontSize: 12.5, color: "#6B7280", marginBottom: 14 }}>BRTS · {active.adults} Adult Ticket</p>
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
-                    <div className="flex items-start gap-2.5">
+                    <div className="flex items-start gap-3">
                       <Dot />
                       <div>
-                        <p style={{ fontSize: 15, fontWeight: 600, color: "#1A1A1A" }}>{active.from}</p>
-                        <p style={{ fontSize: 11, color: "#9CA3AF", marginTop: 1 }}>Via BRTS</p>
+                        <p style={{ fontSize: 19, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.15 }}>{active.from}</p>
+                        <p style={{ fontSize: 12, color: "#B0B4BA", marginTop: 3 }}>Via BRTS</p>
                       </div>
                     </div>
-                    <div style={{ height: 18, marginLeft: 6.5, borderLeft: "1.5px solid #C7CBD1" }} />
-                    <div className="flex items-start gap-2.5">
+                    <div style={{ height: 34, marginLeft: 6.5, borderLeft: "1.5px solid #C7CBD1" }} />
+                    <div className="flex items-start gap-3">
                       <Dot />
-                      <p style={{ fontSize: 15, fontWeight: 600, color: "#1A1A1A" }}>{active.to}</p>
+                      <p style={{ fontSize: 19, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.15 }}>{active.to}</p>
                     </div>
                   </div>
-                  <button onClick={() => nav({ to: "/qr" })} className="flex flex-col items-center active:opacity-70">
-                    <QRCodeSVG value={`TICKET:${active.orderId}:${active.from}:${active.to}`} size={58} level="M" fgColor="#000" bgColor="#fff" />
-                    <span style={{ fontSize: 12, color: BLUE, marginTop: 6 }}>Tap to View</span>
+                  <button onClick={() => nav({ to: "/qr" })} className="flex flex-col items-center active:opacity-70" style={{ marginTop: 4 }}>
+                    <QRCodeSVG value={`TICKET:${active.orderId}:${active.from}:${active.to}`} size={64} level="M" fgColor="#000" bgColor="#fff" />
+                    <span style={{ fontSize: 12.5, color: BLUE, marginTop: 8 }}>Tap to View</span>
                   </button>
                 </div>
-                <div style={{ borderTop: "1px solid #F0F1F3", margin: "12px 0" }} />
-                <div className="flex items-center gap-1.5" style={{ paddingBottom: 4 }}>
-                  <Clock size={14} color={AMBER} />
-                  <span style={{ fontSize: 13, color: "#4B5563" }}>Ticket will expire at</span>
-                  <span style={{ fontSize: 13, color: "#1A1A1A", fontWeight: 700 }}>{expiryLabel(active.validUntil)}</span>
-                </div>
               </div>
-              <div style={{ height: 4, background: AMBER }} />
+
+              {/* Perforation with side notches */}
+              <div style={{ position: "relative", height: 22, marginTop: 14 }}>
+                <div style={{ position: "absolute", left: -9, top: 2, width: 18, height: 18, borderRadius: "50%", background: "#F3F4F6", border: "1px solid #E5E7EB", clipPath: "inset(0 0 0 50%)" }} />
+                <div style={{ position: "absolute", right: -9, top: 2, width: 18, height: 18, borderRadius: "50%", background: "#F3F4F6", border: "1px solid #E5E7EB", clipPath: "inset(0 50% 0 0)" }} />
+                <div style={{ position: "absolute", left: 14, right: 14, top: 10, borderTop: "1px dashed #E1E3E7" }} />
+              </div>
+
+              <div className="flex items-center gap-1.5" style={{ padding: "0 16px 14px" }}>
+                <Clock size={15} color={AMBER} />
+                <span style={{ fontSize: 13, color: "#4B5563" }}>Ticket will expire at</span>
+                <span style={{ fontSize: 13, color: "#1A1A1A", fontWeight: 700 }}>{expiryLabel(active.validUntil)}</span>
+              </div>
+              <div style={{ height: 4, background: AMBER, borderBottomLeftRadius: 16, borderBottomRightRadius: 16 }} />
             </div>
           </>
         )}
+
 
         {recent.length > 0 && (
           <>
@@ -302,9 +310,10 @@ function BookPage() {
 
 function Dot() {
   return (
-    <span style={{ width: 14, height: 14, borderRadius: "50%", border: "2px solid #1A1A1A", display: "inline-flex", alignItems: "center", justifyContent: "center", marginTop: 3, flexShrink: 0 }}>
-      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#1A1A1A" }} />
+    <span style={{ width: 15, height: 15, borderRadius: "50%", background: "#E7E9EC", display: "inline-flex", alignItems: "center", justifyContent: "center", marginTop: 5, flexShrink: 0 }}>
+      <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2B2F36" }} />
     </span>
+
   );
 }
 
