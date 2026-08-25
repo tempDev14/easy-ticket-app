@@ -199,9 +199,9 @@ function BookPage() {
             <button type="button" onClick={() => setPicker("from")} style={{ ...fieldStyle, paddingRight: 104 }} className="active:bg-black/5 text-left">
               <span style={{ color: from ? "#1A1A1A" : "#9CA3AF", fontSize: 16 }}>{from || "From"}</span>
             </button>
-            <div className="flex flex-col items-center" style={{ position: "absolute", right: 12, top: 10, pointerEvents: "none" }}>
-              <QrCode size={20} color={BLUE} strokeWidth={2.2} />
-              <span style={{ fontSize: 10, color: BLUE, marginTop: 3, whiteSpace: "nowrap" }}>Scan at bus stop</span>
+            <div className="flex flex-col items-center" style={{ position: "absolute", right: 12, top: 9, pointerEvents: "none" }}>
+              <ScanQrIcon size={24} />
+              <span style={{ fontSize: 10, color: "#3D6E9E", marginTop: 3, whiteSpace: "nowrap" }}>Scan at bus stop</span>
             </div>
           </div>
 
