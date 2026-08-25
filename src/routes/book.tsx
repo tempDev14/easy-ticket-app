@@ -102,7 +102,7 @@ function BookPage() {
   return (
     <div style={{ background: "#fff", minHeight: "100dvh" }}>
       {/* Header */}
-      <header style={{ background: "#fff", padding: "28px 20px 24px" }} className="flex items-start gap-4">
+      <header style={{ background: "#fff", padding: "42px 20px 24px" }} className="flex items-start gap-4">
         <button onClick={() => nav({ to: "/" })} aria-label="Back" style={{ marginTop: 2 }}><ArrowLeft size={22} color="#212121" /></button>
         <div className="flex-1">
           <p style={{ fontSize: 17.5, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.2 }}>Buy City Bus Ticket</p>
