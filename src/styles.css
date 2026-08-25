@@ -57,6 +57,22 @@ html, body {
 
 input { font-size: 16px; }
 
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+.brand-wordmark {
+  font-family: "Roboto", system-ui, sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: 6px;
+  text-transform: capitalize;
+  background: linear-gradient(100deg, #0B57D0 0%, #29B5E8 55%, #0B57D0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.brand-wordmark::first-letter { font-weight: 700; }
+
 /*
  * Design system definition.
  *
