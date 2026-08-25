@@ -315,6 +315,31 @@ function BookPage() {
   );
 }
 
+function ScanQrIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="scanQrBg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#1B5E86" />
+          <stop offset="100%" stopColor="#062B49" />
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="48" height="48" rx="7" fill="url(#scanQrBg)" />
+      <g fill="none" stroke="#FFFFFF" strokeWidth="3.4">
+        <rect x="7" y="7" width="14" height="14" rx="3.5" />
+        <rect x="27" y="7" width="14" height="14" rx="3.5" />
+        <rect x="7" y="27" width="14" height="14" rx="3.5" />
+      </g>
+      <g fill="#FFFFFF">
+        <rect x="27" y="27" width="6" height="6" rx="1.6" />
+        <rect x="35" y="27" width="6" height="6" rx="1.6" />
+        <rect x="27" y="35" width="6" height="6" rx="1.6" />
+        <rect x="35" y="35" width="6" height="6" rx="1.6" />
+      </g>
+    </svg>
+  );
+}
+
 function Dot() {
   return (
     <span style={{ width: 15, height: 15, borderRadius: "50%", background: "#E7E9EC", display: "inline-flex", alignItems: "center", justifyContent: "center", marginTop: 5, flexShrink: 0 }}>
