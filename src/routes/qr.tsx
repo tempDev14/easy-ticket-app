@@ -87,20 +87,30 @@ function QrPage() {
         <div
           onClick={() => setZoom(false)}
           style={{
-            position: "fixed", inset: 0, background: "#FFFFFF", zIndex: 300,
-            overflowY: "auto", padding: "4px 4px 8px",
+            position: "fixed", inset: 0, zIndex: 300,
+            background: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)",
+            display: "flex", alignItems: "center", justifyContent: "center",
             animation: "qr-zoom-in 260ms ease-out",
           }}
         >
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }}>
-            {Array.from({ length: 24 }).map((_, i) => (
-              <div key={i} style={{ width: "100%", aspectRatio: "1 / 1" }}>
-                <QRCodeSVG value={qrValue} fgColor="#000000" bgColor="#FFFFFF" level="M" style={{ width: "100%", height: "100%", display: "block" }} />
-              </div>
-            ))}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: "92%", height: "88%", background: "#FFFFFF", borderRadius: 14,
+              overflowY: "auto", padding: 12, boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
+            }}
+          >
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", columnGap: 14, rowGap: 14 }}>
+              {Array.from({ length: 24 }).map((_, i) => (
+                <div key={i} style={{ width: "100%", aspectRatio: "1 / 1", background: "#FFFFFF", padding: 6, boxSizing: "border-box" }}>
+                  <QRCodeSVG value={qrValue} fgColor="#000000" bgColor="#FFFFFF" level="M" style={{ width: "100%", height: "100%", display: "block" }} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
+
 
 
       <div style={{ padding: "16px 16px 20px" }}>
