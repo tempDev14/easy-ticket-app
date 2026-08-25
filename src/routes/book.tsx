@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, ChevronDown, Clock, Info, QrCode, ArrowRight } from "lucide-react";
+import { ArrowLeft, ChevronDown, Clock, Info, ArrowRight } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 import { STATIONS, useTicket, formatDateTime } from "@/lib/ticket-context";
 
