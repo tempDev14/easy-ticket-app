@@ -315,26 +315,26 @@ function BookPage() {
   );
 }
 
-function ScanQrIcon({ size = 24 }: { size?: number }) {
+function ScanQrIcon({ size = 26 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="scanQrBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#1B5E86" />
-          <stop offset="100%" stopColor="#062B49" />
-        </linearGradient>
-      </defs>
-      <rect x="0" y="0" width="48" height="48" rx="7" fill="url(#scanQrBg)" />
-      <g fill="none" stroke="#FFFFFF" strokeWidth="3.4">
-        <rect x="7" y="7" width="14" height="14" rx="3.5" />
-        <rect x="27" y="7" width="14" height="14" rx="3.5" />
-        <rect x="7" y="27" width="14" height="14" rx="3.5" />
-      </g>
-      <g fill="#FFFFFF">
-        <rect x="27" y="27" width="6" height="6" rx="1.6" />
-        <rect x="35" y="27" width="6" height="6" rx="1.6" />
-        <rect x="27" y="35" width="6" height="6" rx="1.6" />
-        <rect x="35" y="35" width="6" height="6" rx="1.6" />
+    <svg width={size} height={size} viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="128" height="128" rx="20" fill="#0B3A5B" />
+      <g stroke="#69C7D8" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" fill="none">
+        <rect x="15" y="15" width="35" height="35" rx="3" />
+        <circle cx="32.5" cy="32.5" r="3.5" fill="#69C7D8" stroke="none" />
+        <rect x="68" y="15" width="35" height="35" rx="3" />
+        <circle cx="85.5" cy="32.5" r="3.5" fill="#69C7D8" stroke="none" />
+        <rect x="14" y="67" width="38" height="38" rx="3" />
+        <circle cx="33" cy="86" r="3.5" fill="#69C7D8" stroke="none" />
+        <path d="M68 68H78" />
+        <path d="M68 68V78" />
+        <path d="M93 68H101" />
+        <path d="M101 68V77" />
+        <path d="M68 91V101" />
+        <path d="M68 101H79" />
+        <path d="M98 91V99" />
+        <path d="M98 99H91" />
+        <circle cx="85" cy="85" r="3.5" fill="#69C7D8" stroke="none" />
       </g>
     </svg>
   );
