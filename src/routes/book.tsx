@@ -124,7 +124,7 @@ function BookPage() {
               onClick={() => nav({ to: "/qr" })}
               onKeyDown={(e) => { if (e.key === "Enter") nav({ to: "/qr" }); }}
               className="active:opacity-90 cursor-pointer"
-              style={{ position: "relative", background: "#fff", border: "1px solid #E8EAED", borderRadius: 14, marginBottom: 22, boxShadow: "0 1px 6px rgba(0,0,0,0.07)" }}
+              style={{ position: "relative", background: "#fff", border: "1px solid #ECEEF1", borderRadius: 16, marginBottom: 22, boxShadow: "0 6px 18px rgba(16,24,40,0.10), 0 2px 6px rgba(16,24,40,0.06)" }}
             >
               <div style={{ padding: "14px 16px 0" }}>
                 <p style={{ fontSize: 12.5, color: "#6B7280", marginBottom: 10 }}>BRTS · {active.adults} Adult Ticket</p>
