@@ -39,7 +39,7 @@ function LoginPage() {
 
   return (
     <div className="min-h-[100dvh] flex flex-col items-center justify-center px-6 bg-white">
-      <div className="mb-2" style={{ fontSize: 34, fontWeight: 800, letterSpacing: 2, color: "#0B57D0" }}>HRIDAYAM</div>
+      <div className="brand-wordmark mb-2">hridayam</div>
       <p style={{ fontSize: 13, color: "#757575" }} className="mb-8">BRTS Bus Ticket</p>
       <form
         onSubmit={onSubmit}
