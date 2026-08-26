@@ -162,7 +162,7 @@ function BookPage() {
                 <span style={{ fontSize: 13, color: "#4B5563" }}>Ticket will expire at</span>
                 <span style={{ fontSize: 13, color: "#1A1A1A", fontWeight: 700 }}>{expiryLabel(active.validUntil)}</span>
               </div>
-              <div style={{ height: 4, background: AMBER, borderBottomLeftRadius: 14, borderBottomRightRadius: 14 }} />
+              <div style={{ height: 4, background: AMBER, borderBottomLeftRadius: 16, borderBottomRightRadius: 16 }} />
             </div>
           </>
         )}
