@@ -39,14 +39,13 @@ function BookPage() {
   const [hours, setHours] = useState("3");
   const [minutes, setMinutes] = useState("0");
   const [err, setErr] = useState("");
-  const [customStations, setCustomStations] = useState<string[]>(() => {
-    if (typeof window === "undefined") return [];
-    try { return JSON.parse(localStorage.getItem("custom_stations") || "[]"); } catch { return []; }
-  });
-  const [recent, setRecent] = useState<RecentOrder[]>(() => {
-    if (typeof window === "undefined") return [];
-    try { return JSON.parse(localStorage.getItem("recent_orders") || "[]"); } catch { return []; }
-  });
+  const [customStations, setCustomStations] = useState<string[]>([]);
+  const [recent, setRecent] = useState<RecentOrder[]>([]);
+
+  useEffect(() => {
+    try { setCustomStations(JSON.parse(localStorage.getItem("custom_stations") || "[]")); } catch { /* ignore */ }
+    try { setRecent(JSON.parse(localStorage.getItem("recent_orders") || "[]")); } catch { /* ignore */ }
+  }, []);
 
   const allStations = Array.from(new Set([...STATIONS, ...customStations]));
 
