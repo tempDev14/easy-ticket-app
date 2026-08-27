@@ -321,7 +321,7 @@ function BookPage() {
 function ScanQrIcon({ size = 26 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="#69C7D8" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none">
+      <g stroke="#3FA6CF" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none">
         <rect x="15" y="15" width="35" height="35" rx="3" />
         <circle cx="32.5" cy="32.5" r="3.5" fill="#69C7D8" stroke="none" />
         <rect x="68" y="15" width="35" height="35" rx="3" />
