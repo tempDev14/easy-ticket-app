@@ -143,17 +143,17 @@ function BookPage() {
                       <p style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.15 }}>{active.to}</p>
                     </div>
                   </div>
-                  <div className="flex flex-col items-center" style={{ marginTop: 2, marginRight: 4 }}>
-                    <QRCodeSVG value={`TICKET:${active.orderId}:${active.from}:${active.to}`} size={62} level="M" fgColor="#000" bgColor="#fff" />
-                    <span style={{ fontSize: 13, color: "#29B5E8", marginTop: 10 }}>Tap to View</span>
+                  <div className="flex flex-col items-center" style={{ marginTop: 0, marginRight: 4 }}>
+                    <QRCodeSVG value={`TICKET:${active.orderId}:${active.from}:${active.to}`} size={56} level="M" fgColor="#000" bgColor="#fff" />
+                    <span style={{ fontSize: 12.5, color: "#29B5E8", marginTop: 12, textAlign: "center" }}>Tap to View</span>
                   </div>
                 </div>
               </div>
 
               {/* Perforation notches sit on the divider above the expiry row */}
               <div style={{ position: "relative", height: 22, marginTop: 20 }}>
-                <div style={{ position: "absolute", left: -9, top: 2, width: 18, height: 18, borderRadius: "50%", background: "#F5F5F5", border: "1px solid #EEF0F3", clipPath: "inset(0 0 0 50%)" }} />
-                <div style={{ position: "absolute", right: -9, top: 2, width: 18, height: 18, borderRadius: "50%", background: "#F5F5F5", border: "1px solid #EEF0F3", clipPath: "inset(0 50% 0 0)" }} />
+                <div style={{ position: "absolute", left: -10, top: 1, width: 20, height: 20, borderRadius: "50%", background: "#fff", border: "1px solid #E4E7EB", clipPath: "inset(0 0 0 50%)" }} />
+                <div style={{ position: "absolute", right: -10, top: 1, width: 20, height: 20, borderRadius: "50%", background: "#fff", border: "1px solid #E4E7EB", clipPath: "inset(0 50% 0 0)" }} />
                 <div style={{ position: "absolute", left: 14, right: 14, top: 10, borderTop: "1px solid #F0F1F3" }} />
               </div>
 
@@ -162,9 +162,8 @@ function BookPage() {
                 <span style={{ fontSize: 13.5, color: "#4B5563" }}>Ticket will expire at</span>
                 <span style={{ fontSize: 13.5, color: "#1A1A1A", fontWeight: 700 }}>{expiryLabel(active.validUntil)}</span>
               </div>
-              <div style={{ padding: "0 16px 8px" }}>
-                <div style={{ height: 3, background: AMBER, borderRadius: 999 }} />
-              </div>
+              <div style={{ height: 4, background: AMBER, borderBottomLeftRadius: 18, borderBottomRightRadius: 18 }} />
+
 
             </div>
           </>
@@ -202,9 +201,9 @@ function BookPage() {
             <button type="button" onClick={() => setPicker("from")} style={{ ...fieldStyle, paddingRight: 104 }} className="active:bg-black/5 text-left">
               <span style={{ color: from ? "#1A1A1A" : "#9CA3AF", fontSize: 16 }}>{from || "From"}</span>
             </button>
-            <div className="flex flex-col items-center" style={{ position: "absolute", right: 10, top: 9, pointerEvents: "none" }}>
-              <ScanQrIcon size={17} />
-              <span style={{ fontSize: 9, color: "#4FA3D1", fontWeight: 400, marginTop: 4, letterSpacing: 0.1, whiteSpace: "nowrap" }}>Scan at bus stop</span>
+            <div className="flex flex-col items-center" style={{ position: "absolute", right: 12, top: 8, pointerEvents: "none" }}>
+              <ScanQrIcon size={22} />
+              <span style={{ fontSize: 9.5, color: "#4FA3D1", fontWeight: 400, marginTop: 5, letterSpacing: 0.1, whiteSpace: "nowrap" }}>Scan at bus stop</span>
             </div>
           </div>
 
