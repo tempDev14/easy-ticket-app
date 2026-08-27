@@ -61,11 +61,11 @@ input { font-size: 16px; }
 .no-scrollbar::-webkit-scrollbar { display: none; width: 0; height: 0; }
 
 .brand-wordmark {
-  font-family: "Playfair Display", Georgia, serif;
-  font-style: italic;
-  font-size: 46px;
+  font-family: "Dancing Script", "Grechen Fuemen", cursive;
+  font-style: normal;
+  font-size: 58px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: 0px;
   line-height: 1.15;
   text-transform: capitalize;
   background: linear-gradient(100deg, #0B57D0 0%, #29B5E8 55%, #0B57D0 100%);
