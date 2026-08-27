@@ -323,11 +323,11 @@ function ScanQrIcon({ size = 26 }: { size?: number }) {
     <svg width={size} height={size} viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
       <g stroke="#3FA6CF" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none">
         <rect x="15" y="15" width="35" height="35" rx="3" />
-        <circle cx="32.5" cy="32.5" r="3.5" fill="#69C7D8" stroke="none" />
+        <circle cx="32.5" cy="32.5" r="3.5" fill="#3FA6CF" stroke="none" />
         <rect x="68" y="15" width="35" height="35" rx="3" />
-        <circle cx="85.5" cy="32.5" r="3.5" fill="#69C7D8" stroke="none" />
+        <circle cx="85.5" cy="32.5" r="3.5" fill="#3FA6CF" stroke="none" />
         <rect x="14" y="67" width="38" height="38" rx="3" />
-        <circle cx="33" cy="86" r="3.5" fill="#69C7D8" stroke="none" />
+        <circle cx="33" cy="86" r="3.5" fill="#3FA6CF" stroke="none" />
         <path d="M68 68H78" />
         <path d="M68 68V78" />
         <path d="M93 68H101" />
@@ -336,7 +336,7 @@ function ScanQrIcon({ size = 26 }: { size?: number }) {
         <path d="M68 101H79" />
         <path d="M98 91V99" />
         <path d="M98 99H91" />
-        <circle cx="85" cy="85" r="3.5" fill="#69C7D8" stroke="none" />
+        <circle cx="85" cy="85" r="3.5" fill="#3FA6CF" stroke="none" />
       </g>
     </svg>
   );
