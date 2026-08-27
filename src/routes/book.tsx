@@ -162,7 +162,10 @@ function BookPage() {
                 <span style={{ fontSize: 13.5, color: "#4B5563" }}>Ticket will expire at</span>
                 <span style={{ fontSize: 13.5, color: "#1A1A1A", fontWeight: 700 }}>{expiryLabel(active.validUntil)}</span>
               </div>
-              <div style={{ height: 4, background: AMBER, borderBottomLeftRadius: 18, borderBottomRightRadius: 18 }} />
+              <div style={{ padding: "0 16px 8px" }}>
+                <div style={{ height: 3, background: AMBER, borderRadius: 999 }} />
+              </div>
+
             </div>
           </>
         )}
@@ -199,9 +202,9 @@ function BookPage() {
             <button type="button" onClick={() => setPicker("from")} style={{ ...fieldStyle, paddingRight: 104 }} className="active:bg-black/5 text-left">
               <span style={{ color: from ? "#1A1A1A" : "#9CA3AF", fontSize: 16 }}>{from || "From"}</span>
             </button>
-            <div className="flex flex-col items-center" style={{ position: "absolute", right: 12, top: 7, pointerEvents: "none" }}>
-              <ScanQrIcon size={20} />
-              <span style={{ fontSize: 9.5, color: "#7FB4DC", fontWeight: 400, marginTop: 5, letterSpacing: 0.1, whiteSpace: "nowrap" }}>Scan at bus stop</span>
+            <div className="flex flex-col items-center" style={{ position: "absolute", right: 10, top: 9, pointerEvents: "none" }}>
+              <ScanQrIcon size={17} />
+              <span style={{ fontSize: 9, color: "#4FA3D1", fontWeight: 400, marginTop: 4, letterSpacing: 0.1, whiteSpace: "nowrap" }}>Scan at bus stop</span>
             </div>
           </div>
 
@@ -318,13 +321,13 @@ function BookPage() {
 function ScanQrIcon({ size = 26 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="#69C7D8" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none">
+      <g stroke="#3FA6CF" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none">
         <rect x="15" y="15" width="35" height="35" rx="3" />
-        <circle cx="32.5" cy="32.5" r="3.5" fill="#69C7D8" stroke="none" />
+        <circle cx="32.5" cy="32.5" r="3.5" fill="#3FA6CF" stroke="none" />
         <rect x="68" y="15" width="35" height="35" rx="3" />
-        <circle cx="85.5" cy="32.5" r="3.5" fill="#69C7D8" stroke="none" />
+        <circle cx="85.5" cy="32.5" r="3.5" fill="#3FA6CF" stroke="none" />
         <rect x="14" y="67" width="38" height="38" rx="3" />
-        <circle cx="33" cy="86" r="3.5" fill="#69C7D8" stroke="none" />
+        <circle cx="33" cy="86" r="3.5" fill="#3FA6CF" stroke="none" />
         <path d="M68 68H78" />
         <path d="M68 68V78" />
         <path d="M93 68H101" />
@@ -333,7 +336,7 @@ function ScanQrIcon({ size = 26 }: { size?: number }) {
         <path d="M68 101H79" />
         <path d="M98 91V99" />
         <path d="M98 99H91" />
-        <circle cx="85" cy="85" r="3.5" fill="#69C7D8" stroke="none" />
+        <circle cx="85" cy="85" r="3.5" fill="#3FA6CF" stroke="none" />
       </g>
     </svg>
   );
