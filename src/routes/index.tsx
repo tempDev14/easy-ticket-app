@@ -58,7 +58,7 @@ function LoginPage() {
           className="w-full mt-5 active:scale-[0.98] transition-transform"
           style={{ background: "#29B5E8", color: "#fff", borderRadius: 8, padding: "14px 0", fontSize: 16, fontWeight: 600, border: "none" }}
         >
-          Login
+          Go
         </button>
         
       </form>
