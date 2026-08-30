@@ -128,7 +128,7 @@ function BookPage() {
               <div style={{ padding: "18px 20px 0" }}>
                 <p style={{ fontSize: 13, color: "#5F6570", marginBottom: 16 }}>BRTS · {active.adults} Adult Ticket</p>
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1">
+                <div className="flex-1">
                     <div className="flex items-start gap-3">
                       <Dot />
                       <div>
@@ -136,7 +136,9 @@ function BookPage() {
                         <p style={{ fontSize: 12, color: "#B0B4BA", marginTop: 2 }}>Via BRTS</p>
                       </div>
                     </div>
-                    <div style={{ height: 26, marginLeft: 7, borderLeft: "1.5px solid #DCDFE3" }} />
+                    <div style={{ height: 26, width: 15, position: "relative" }}>
+                      <div style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", top: -2, bottom: -2, width: 1.5, background: "#DCDFE3" }} />
+                    </div>
                     <div className="flex items-start gap-3">
                       <Dot />
                       <p style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.15 }}>{active.to}</p>
