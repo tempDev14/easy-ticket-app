@@ -128,7 +128,7 @@ function BookPage() {
               <div style={{ padding: "18px 20px 0" }}>
                 <p style={{ fontSize: 13, color: "#5F6570", marginBottom: 16 }}>BRTS · {active.adults} Adult Ticket</p>
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1">
+                <div className="flex-1">
                     <div className="flex items-start gap-3">
                       <Dot />
                       <div>
@@ -136,7 +136,9 @@ function BookPage() {
                         <p style={{ fontSize: 12, color: "#B0B4BA", marginTop: 2 }}>Via BRTS</p>
                       </div>
                     </div>
-                    <div style={{ height: 26, marginLeft: 7, borderLeft: "1.5px solid #DCDFE3" }} />
+                    <div style={{ height: 26, width: 15, position: "relative" }}>
+                      <div style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", top: -2, bottom: -2, width: 1.5, background: "#DCDFE3" }} />
+                    </div>
                     <div className="flex items-start gap-3">
                       <Dot />
                       <p style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.15 }}>{active.to}</p>
@@ -156,12 +158,12 @@ function BookPage() {
                 <div style={{ position: "absolute", left: 14, right: 14, top: 10, borderTop: "1px solid #F0F1F3" }} />
               </div>
 
-              <div className="flex items-center gap-2" style={{ padding: "0 20px 18px" }}>
-                <Clock size={15} color={AMBER} />
+              <div className="flex items-center gap-2" style={{ padding: "0 20px 24px" }}>
+                <FilledClock size={15} />
                 <span style={{ fontSize: 13.5, color: "#4B5563" }}>Ticket will expire at</span>
                 <span style={{ fontSize: 13.5, color: "#1A1A1A", fontWeight: 700 }}>{expiryLabel(active.validUntil)}</span>
               </div>
-              <div style={{ height: 4, background: AMBER, borderBottomLeftRadius: 18, borderBottomRightRadius: 18 }} />
+              <div style={{ position: "absolute", left: -1, right: -1, bottom: -1, height: 6, background: AMBER, borderBottomLeftRadius: 18, borderBottomRightRadius: 18 }} />
 
 
             </div>
@@ -336,6 +338,15 @@ function ScanQrIcon({ size = 26 }: { size?: number }) {
         <path d="M98 99H91" />
         <circle cx="85" cy="85" r="3.5" fill="#3FA6CF" stroke="none" />
       </g>
+    </svg>
+  );
+}
+
+function FilledClock({ size = 15 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="10" fill="#F59E0B" stroke="#D97706" strokeWidth="1" />
+      <path d="M12 6.5V12L16 14.5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
     </svg>
   );
 }

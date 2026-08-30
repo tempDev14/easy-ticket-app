@@ -45,11 +45,10 @@ function LoginPage() {
         className="w-full"
         style={{ maxWidth: 360, background: "#fff", borderRadius: 16, boxShadow: "0 4px 20px rgba(0,0,0,0.08)", padding: 24 }}
       >
-        <label style={{ fontSize: 14, color: "#757575" }} className="block mb-2">Username</label>
         <input
           value={value}
           onChange={(e) => { setValue(e.target.value); setErr(""); }}
-          placeholder="Enter your username"
+          placeholder="Hridayam will always be ...."
           className="w-full"
           style={{ border: "1px solid #E0E0E0", borderRadius: 8, padding: "12px 16px", fontSize: 16, color: "#212121", outline: "none" }}
         />
@@ -59,7 +58,7 @@ function LoginPage() {
           className="w-full mt-5 active:scale-[0.98] transition-transform"
           style={{ background: "#29B5E8", color: "#fff", borderRadius: 8, padding: "14px 0", fontSize: 16, fontWeight: 600, border: "none" }}
         >
-          Login
+          Go
         </button>
         
       </form>
