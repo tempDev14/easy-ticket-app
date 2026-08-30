@@ -128,7 +128,9 @@ function BookPage() {
               <div style={{ padding: "18px 20px 0" }}>
                 <p style={{ fontSize: 13, color: "#5F6570", marginBottom: 16 }}>BRTS · {active.adults} Adult Ticket</p>
                 <div className="flex items-start justify-between gap-3">
-                <div className="flex-1">
+                <div className="flex-1" style={{ position: "relative" }}>
+                    {/* one continuous straight line from dot to dot, hidden under the dots */}
+                    <div style={{ position: "absolute", left: 6.75, top: 13, bottom: 12, width: 1.5, background: "#DCDFE3" }} />
                     <div className="flex items-start gap-3">
                       <Dot />
                       <div>
@@ -136,9 +138,7 @@ function BookPage() {
                         <p style={{ fontSize: 12, color: "#B0B4BA", marginTop: 2 }}>Via BRTS</p>
                       </div>
                     </div>
-                    <div style={{ height: 26, width: 15, position: "relative" }}>
-                      <div style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", top: -2, bottom: -2, width: 1.5, background: "#DCDFE3" }} />
-                    </div>
+                    <div style={{ height: 26 }} />
                     <div className="flex items-start gap-3">
                       <Dot />
                       <p style={{ fontSize: 20, fontWeight: 700, color: "#1A1A1A", lineHeight: 1.15 }}>{active.to}</p>
@@ -163,7 +163,10 @@ function BookPage() {
                 <span style={{ fontSize: 13.5, color: "#4B5563" }}>Ticket will expire at</span>
                 <span style={{ fontSize: 13.5, color: "#1A1A1A", fontWeight: 700 }}>{expiryLabel(active.validUntil)}</span>
               </div>
-              <div style={{ position: "absolute", left: -1, right: -1, bottom: -1, height: 6, background: AMBER, borderBottomLeftRadius: 18, borderBottomRightRadius: 18 }} />
+              {/* amber strip clipped by the card's rounded bottom corners, straight top edge */}
+              <div style={{ position: "absolute", inset: 0, borderRadius: 18, overflow: "hidden", pointerEvents: "none" }}>
+                <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 6, background: AMBER }} />
+              </div>
 
 
             </div>
@@ -353,7 +356,7 @@ function FilledClock({ size = 15 }: { size?: number }) {
 
 function Dot() {
   return (
-    <span style={{ width: 15, height: 15, borderRadius: "50%", background: "#E7E9EC", display: "inline-flex", alignItems: "center", justifyContent: "center", marginTop: 5, flexShrink: 0 }}>
+    <span style={{ width: 15, height: 15, borderRadius: "50%", background: "#E7E9EC", display: "inline-flex", alignItems: "center", justifyContent: "center", marginTop: 5, flexShrink: 0, position: "relative" }}>
       <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2B2F36" }} />
     </span>
 
