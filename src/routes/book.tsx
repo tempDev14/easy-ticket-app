@@ -288,10 +288,15 @@ function BookPage() {
           >
             Buy Ticket
           </button>
-          <div className="flex items-center justify-center gap-1.5" style={{ marginTop: 6 }}>
-            <Clock size={13} color="#9CA3AF" />
-            <span style={{ fontSize: 12, color: "#9CA3AF" }}>All bus tickets will be valid for 3 hours post booking</span>
-          </div>
+          <button
+            type="button"
+            onClick={() => setMoreOpen((v) => !v)}
+            className="flex items-center justify-center gap-1.5 w-full"
+            style={{ marginTop: 6, color: "#9CA3AF", fontSize: 12, background: "transparent", border: "none", padding: 0, cursor: "pointer" }}
+          >
+            <Info size={13} color="#9CA3AF" />
+            <span>All bus tickets will be valid for 3 hours post booking</span>
+          </button>
         </form>
       </div>
 
