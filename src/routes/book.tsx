@@ -89,7 +89,8 @@ function BookPage() {
       issuedOn: now.toISOString(),
       validUntil: new Date(now.getTime() + totalMs).toISOString(),
     });
-    const next = [{ from, to, adults }, ...recent].slice(0, 5);
+    const deduped = recent.filter((r) => r.from !== from || r.to !== to || r.adults !== adults);
+    const next = [{ from, to, adults }, ...deduped].slice(0, 5);
     setRecent(next);
     try { localStorage.setItem("recent_orders", JSON.stringify(next)); } catch {}
     nav({ to: "/ticket" });
@@ -242,11 +243,6 @@ function BookPage() {
             )}
           </div>
 
-          <button type="button" onClick={() => setMoreOpen((v) => !v)} className="flex items-center gap-1.5 self-start active:opacity-70" style={{ padding: "2px 0" }}>
-            <Info size={15} color={BLUE} />
-            <span style={{ fontSize: 13, color: BLUE }}>Additional info</span>
-            <ChevronDown size={15} color={BLUE} style={{ transform: moreOpen ? "rotate(180deg)" : "none", transition: "transform .22s ease" }} />
-          </button>
 
           <div style={{ maxHeight: moreOpen ? 400 : 0, overflow: "hidden", transition: "max-height .24s ease" }}>
             <div className="flex flex-col gap-4" style={{ paddingTop: 4 }}>
